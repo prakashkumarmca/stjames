@@ -1,1765 +1,1778 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ST.JAMES Matriculation School</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    /* ===== CSS VARIABLES ===== */
-    :root {
-      --blue: #0a2d6e;
-      --blue-mid: #1a4fad;
-      --blue-light: #2563eb;
-      --gold: #d4a017;
-      --gold-light: #f5c842;
-      --white: #ffffff;
-      --off-white: #f8f9ff;
-      --gray: #6b7280;
-      --dark: #0f172a;
-      --shadow: 0 10px 40px rgba(10, 45, 110, 0.15);
-      --shadow-lg: 0 20px 60px rgba(10, 45, 110, 0.2);
-      --radius: 16px;
-      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>St. James Matriculation School — Koosukal, Palacode | Our Utmost for the Highest</title>
+<meta name="description" content="St. James Matriculation School, Koosukal, Palacode, Dharmapuri. Established 2010. LKG to Class X, NEP-aligned State Board curriculum. Smart classrooms, GPS-tracked transport, CCTV-secured campus. Admissions open." />
+<meta name="theme-color" content="#0d2a52" />
+<meta property="og:title" content="St. James Matriculation School — Palacode" />
+<meta property="og:description" content="Your pathway to global excellence. Quality education for rural students, equal to city standards." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d2a52'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='30' font-weight='700' fill='%23f2b12c' text-anchor='middle'%3ESJ%3C/text%3E%3C/svg%3E" />
 
-    /* ===== RESET & BASE ===== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Poppins', sans-serif;
-      color: var(--dark);
-      background: var(--white);
-      overflow-x: hidden;
-    }
-    img { max-width: 100%; display: block; }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-    /* ===== SCROLLBAR ===== */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--off-white); }
-    ::-webkit-scrollbar-thumb { background: var(--blue-mid); border-radius: 10px; }
+<style>
+/* ============================================================
+   RESET + TOKENS
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
 
-    /* ===== UTILITY ===== */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      color: var(--blue);
-      text-align: center;
-      margin-bottom: 12px;
-    }
-    .section-subtitle {
-      text-align: center;
-      color: var(--gray);
-      font-size: 1.05rem;
-      margin-bottom: 56px;
-    }
-    .gold-line {
-      width: 64px; height: 4px;
-      background: linear-gradient(90deg, var(--gold), var(--gold-light));
-      border-radius: 4px;
-      margin: 12px auto 8px;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 32px;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      cursor: pointer;
-      border: none;
-      transition: var(--transition);
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      color: var(--blue);
-    }
-    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(212,160,23,0.4); }
-    .btn-outline {
-      background: transparent;
-      color: var(--white);
-      border: 2px solid rgba(255,255,255,0.7);
-    }
-    .btn-outline:hover { background: rgba(255,255,255,0.15); transform: translateY(-3px); }
+:root{
+  --navy-900:#071a34;
+  --navy-800:#0a2244;
+  --navy:#0d2a52;
+  --navy-600:#17406f;
+  --navy-100:#e8eef7;
 
-    /* ===== PRELOADER ===== */
-    #preloader {
-      position: fixed; inset: 0;
-      background: var(--blue);
-      display: flex; align-items: center; justify-content: center;
-      z-index: 9999;
-      transition: opacity 0.6s ease;
-    }
-    .preloader-inner { text-align: center; }
-    .preloader-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      color: var(--gold-light);
-      animation: pulse 1.2s ease infinite;
-    }
-    .preloader-bar {
-      width: 180px; height: 4px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 4px;
-      margin: 16px auto 0;
-      overflow: hidden;
-    }
-    .preloader-bar::after {
-      content: '';
-      display: block; height: 100%;
-      width: 0;
-      background: var(--gold-light);
-      border-radius: 4px;
-      animation: load 1.8s ease forwards;
-    }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
-    @keyframes load { to { width: 100%; } }
+  --gold:#f2b12c;
+  --gold-400:#ffc857;
+  --gold-100:#fdf3dd;
 
-    /* ===== NAVBAR ===== */
-    .navbar {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 1000;
-      padding: 16px 0;
-      transition: var(--transition);
-    }
-    .navbar.scrolled {
-      background: var(--blue);
-      padding: 10px 0;
-      box-shadow: var(--shadow);
-    }
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .nav-logo .logo-icon {
-      width: 48px; height: 48px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem;
-      color: var(--blue);
-      font-weight: 800;
-      font-family: 'Playfair Display', serif;
-      flex-shrink: 0;
-    }
-    .nav-logo .logo-text { line-height: 1.2; }
-    .nav-logo .logo-text .school-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      color: var(--white);
-      font-weight: 700;
-    }
-    .nav-logo .logo-text .school-type {
-      font-size: 0.72rem;
-      color: var(--gold-light);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .nav-links a {
-      color: rgba(255,255,255,0.85);
-      font-size: 0.9rem;
-      font-weight: 500;
-      padding: 8px 14px;
-      border-radius: 8px;
-      transition: var(--transition);
-    }
-    .nav-links a:hover { color: var(--gold-light); background: rgba(255,255,255,0.08); }
-    .nav-cta {
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      color: var(--blue) !important;
-      font-weight: 700 !important;
-      padding: 10px 22px !important;
-      border-radius: 50px !important;
-    }
-    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,160,23,0.4); background: var(--gold-light) !important; }
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 8px;
-      border-radius: 8px;
-    }
-    .hamburger span {
-      display: block; width: 26px; height: 2.5px;
-      background: var(--white);
-      border-radius: 4px;
-      transition: var(--transition);
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 70px; left: 0; right: 0;
-      background: var(--blue);
-      padding: 20px;
-      box-shadow: var(--shadow-lg);
-      z-index: 999;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      color: rgba(255,255,255,0.85);
-      padding: 12px 16px;
-      border-radius: 10px;
-      font-weight: 500;
-      transition: var(--transition);
-    }
-    .mobile-menu a:hover { background: rgba(255,255,255,0.1); color: var(--gold-light); }
+  --ink:#141d2b;
+  --body:#556478;
+  --line:#e4e9f0;
+  --cream:#fbf8f2;
+  --white:#ffffff;
 
-    /* ===== HERO ===== */
-    .hero {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #040f2e 0%, #0a2d6e 40%, #1a4fad 80%, #0f3d8a 100%);
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-    .hero-particles {
-      position: absolute; inset: 0;
-      pointer-events: none;
-    }
-    .hero-particles span {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(212,160,23,0.15);
-      animation: float linear infinite;
-    }
-    @keyframes float {
-      0% { transform: translateY(100vh) scale(0); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { transform: translateY(-100px) scale(1); opacity: 0; }
-    }
-    .hero-content {
-      position: relative; z-index: 2;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-      padding: 120px 0 80px;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(212,160,23,0.15);
-      border: 1px solid rgba(212,160,23,0.3);
-      color: var(--gold-light);
-      font-size: 0.82rem;
-      font-weight: 600;
-      padding: 8px 18px;
-      border-radius: 50px;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-    .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
-      color: var(--white);
-      line-height: 1.15;
-      margin-bottom: 20px;
-    }
-    .hero-title .highlight {
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero-desc {
-      color: rgba(255,255,255,0.75);
-      font-size: 1.05rem;
-      line-height: 1.8;
-      margin-bottom: 36px;
-    }
-    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
-    .hero-stats {
-      display: flex;
-      gap: 28px;
-      margin-top: 40px;
-      padding-top: 40px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-    .hero-stat .num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      color: var(--gold-light);
-      font-weight: 700;
-    }
-    .hero-stat .lbl {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.6);
-      margin-top: 2px;
-    }
-    .hero-visual {
-      position: relative;
-      display: flex; justify-content: center; align-items: center;
-    }
-    .hero-img-main {
-      width: 100%;
-      max-width: 500px;
-      height: 400px;
-      object-fit: cover;
-      border-radius: 24px;
-      border: 4px solid rgba(212,160,23,0.3);
-      box-shadow: var(--shadow-lg);
-    }
-    .hero-img-float {
-      position: absolute;
-      bottom: -24px; left: -24px;
-      width: 180px; height: 140px;
-      object-fit: cover;
-      border-radius: 16px;
-      border: 4px solid var(--blue-mid);
-      box-shadow: var(--shadow);
-    }
-    .hero-badge-float {
-      position: absolute;
-      top: -16px; right: -16px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      color: var(--blue);
-      padding: 16px 20px;
-      border-radius: 16px;
-      text-align: center;
-      box-shadow: var(--shadow);
-    }
-    .hero-badge-float .big { font-size: 1.6rem; font-weight: 800; font-family: 'Playfair Display', serif; display: block; }
-    .hero-badge-float .small { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-    .hero-scroll {
-      position: absolute;
-      bottom: 32px; left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      color: rgba(255,255,255,0.5);
-      font-size: 0.78rem;
-      z-index: 2;
-    }
-    .hero-scroll .scroll-dot {
-      width: 6px; height: 6px;
-      background: var(--gold-light);
-      border-radius: 50%;
-      animation: bounce 1.5s ease infinite;
-    }
-    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+  --radius:20px;
+  --radius-sm:14px;
+  --shadow-sm:0 2px 8px rgba(13,42,82,.06);
+  --shadow:0 14px 34px -14px rgba(13,42,82,.22);
+  --shadow-lg:0 30px 60px -24px rgba(13,42,82,.34);
 
-    /* ===== MARQUEE BAND ===== */
-    .marquee-band {
-      background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
-      padding: 14px 0;
-      overflow: hidden;
-    }
-    .marquee-inner {
-      display: flex;
-      animation: marquee 25s linear infinite;
-      white-space: nowrap;
-    }
-    .marquee-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 0 40px;
-      color: var(--blue);
-      font-weight: 600;
-      font-size: 0.92rem;
-    }
-    .marquee-item i { color: var(--blue-mid); }
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  --header-h:70px;
+  --font:'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --display:'Marcellus', Georgia, 'Times New Roman', serif;
+}
 
-    /* ===== ABOUT ===== */
-    .about { padding: 100px 0; background: var(--off-white); }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 72px;
-      align-items: center;
-    }
-    .about-images {
-      position: relative;
-    }
-    .about-img1 {
-      width: 75%;
-      height: 380px;
-      object-fit: cover;
-      border-radius: 20px;
-      box-shadow: var(--shadow-lg);
-    }
-    .about-img2 {
-      position: absolute;
-      bottom: -32px; right: 0;
-      width: 55%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 16px;
-      border: 6px solid var(--white);
-      box-shadow: var(--shadow);
-    }
-    .about-award {
-      position: absolute;
-      top: 24px; right: 0;
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      color: var(--blue);
-      padding: 14px 18px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: var(--shadow);
-    }
-    .about-award i { font-size: 1.6rem; }
-    .about-award .text .t1 { font-weight: 700; font-size: 0.9rem; }
-    .about-award .text .t2 { font-size: 0.72rem; opacity: 0.8; }
-    .about-text .tag {
-      display: inline-block;
-      background: rgba(10,45,110,0.08);
-      color: var(--blue-mid);
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 6px 16px;
-      border-radius: 50px;
-      margin-bottom: 16px;
-    }
-    .about-text h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.9rem, 3vw, 2.5rem);
-      color: var(--blue);
-      margin-bottom: 20px;
-      line-height: 1.25;
-    }
-    .about-text p {
-      color: var(--gray);
-      line-height: 1.85;
-      margin-bottom: 16px;
-    }
-    .about-features {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-top: 28px;
-    }
-    .about-feat {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    .about-feat .icon {
-      width: 36px; height: 36px;
-      background: linear-gradient(135deg, var(--blue), var(--blue-mid));
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gold-light);
-      font-size: 0.85rem;
-      flex-shrink: 0;
-    }
-    .about-feat .info .t1 { font-weight: 600; font-size: 0.88rem; color: var(--blue); }
-    .about-feat .info .t2 { font-size: 0.78rem; color: var(--gray); }
+html{
+  -webkit-text-size-adjust:100%;
+  scroll-behavior:smooth;
+  overflow-x:hidden;
+}
+body{
+  font-family:var(--font);
+  font-size:16px;
+  line-height:1.7;
+  color:var(--body);
+  background:var(--white);
+  /* `clip` — NOT `hidden`. overflow-x:hidden on body makes it a scroll
+     container, which silently breaks position:sticky on the header.
+     `clip` contains overflow without creating one. Browsers too old for
+     `clip` fall back to visible, and html's overflow-x still catches it. */
+  overflow-x:clip;
+  width:100%;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg,video,iframe{ display:block; max-width:100%; }
+img{ height:auto; }
+a{ color:inherit; text-decoration:none; }
+ul{ list-style:none; }
+button,input,textarea,select{ font:inherit; color:inherit; }
+button{ background:none; border:0; cursor:pointer; }
+:focus-visible{ outline:3px solid var(--gold); outline-offset:3px; border-radius:4px; }
 
-    /* ===== STATS ===== */
-    .stats-section {
-      background: linear-gradient(135deg, var(--blue) 0%, #1a4fad 100%);
-      padding: 72px 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .stats-section::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
-      position: relative;
-    }
-    .stat-card {
-      text-align: center;
-      padding: 32px 20px;
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.05);
-      transition: var(--transition);
-    }
-    .stat-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-6px); }
-    .stat-card .stat-icon {
-      width: 56px; height: 56px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem;
-      color: var(--blue);
-      margin: 0 auto 16px;
-    }
-    .stat-card .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.6rem;
-      color: var(--white);
-      font-weight: 800;
-    }
-    .stat-card .stat-num span { color: var(--gold-light); }
-    .stat-card .stat-lbl {
-      color: rgba(255,255,255,0.65);
-      font-size: 0.88rem;
-      margin-top: 6px;
-    }
+h1,h2,h3,h4{ color:var(--ink); line-height:1.2; font-weight:700; letter-spacing:-.02em; }
 
-    /* ===== PROGRAMS ===== */
-    .programs { padding: 100px 0; background: var(--white); }
-    .programs-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-    .prog-card {
-      background: var(--off-white);
-      border-radius: 20px;
-      padding: 36px 28px;
-      text-align: center;
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-      border: 2px solid transparent;
-    }
-    .prog-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--blue), var(--blue-light));
-      transform: scaleX(0);
-      transition: var(--transition);
-    }
-    .prog-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); border-color: rgba(10,45,110,0.1); }
-    .prog-card:hover::before { transform: scaleX(1); }
-    .prog-icon {
-      width: 72px; height: 72px;
-      background: linear-gradient(135deg, var(--blue), var(--blue-mid));
-      border-radius: 20px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.8rem;
-      color: var(--gold-light);
-      margin: 0 auto 20px;
-      transition: var(--transition);
-    }
-    .prog-card:hover .prog-icon { transform: scale(1.1) rotate(-5deg); }
-    .prog-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      color: var(--blue);
-      margin-bottom: 10px;
-    }
-    .prog-card p {
-      color: var(--gray);
-      font-size: 0.9rem;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .prog-card .prog-grade {
-      display: inline-block;
-      background: rgba(10,45,110,0.08);
-      color: var(--blue-mid);
-      font-size: 0.78rem;
-      font-weight: 600;
-      padding: 5px 14px;
-      border-radius: 50px;
-    }
+/* Fluid layout container — the single source of horizontal rhythm.
+   min() guarantees it can never exceed the viewport, which is what
+   kills the mobile side-scroll. */
+.container{ width:min(1180px, 100% - 2.4rem); margin-inline:auto; }
+@media (min-width:768px){ .container{ width:min(1180px, 100% - 4rem); } }
 
-    /* ===== GALLERY ===== */
-    .gallery { padding: 100px 0; background: var(--off-white); }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(2, 240px);
-      gap: 16px;
-    }
-    .gallery-item {
-      border-radius: 16px;
-      overflow: hidden;
-      cursor: pointer;
-      position: relative;
-    }
-    .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-    .gallery-item:nth-child(5) { grid-column: span 2; }
-    .gallery-item img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    .gallery-item:hover img { transform: scale(1.08); }
-    .gallery-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, transparent 50%, rgba(10,45,110,0.8) 100%);
-      opacity: 0;
-      transition: var(--transition);
-      display: flex;
-      align-items: flex-end;
-      padding: 20px;
-    }
-    .gallery-item:hover .gallery-overlay { opacity: 1; }
-    .gallery-overlay span {
-      color: var(--white);
-      font-size: 0.88rem;
-      font-weight: 500;
-    }
-    /* Lightbox */
-    .lightbox {
-      display: none;
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.92);
-      z-index: 9998;
-      align-items: center;
-      justify-content: center;
-    }
-    .lightbox.active { display: flex; }
-    .lightbox img {
-      max-width: 90vw;
-      max-height: 85vh;
-      object-fit: contain;
-      border-radius: 12px;
-      box-shadow: 0 0 60px rgba(0,0,0,0.5);
-    }
-    .lightbox-close {
-      position: absolute;
-      top: 24px; right: 24px;
-      color: var(--white);
-      font-size: 2rem;
-      cursor: pointer;
-      background: rgba(255,255,255,0.1);
-      width: 48px; height: 48px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      transition: var(--transition);
-    }
-    .lightbox-close:hover { background: rgba(255,255,255,0.2); }
+section{ scroll-margin-top:calc(var(--header-h) + 10px); }
+.pad{ padding:68px 0; }
+@media (min-width:768px){ .pad{ padding:100px 0; } }
 
-    /* ===== TESTIMONIALS ===== */
-    .testimonials { padding: 100px 0; background: var(--white); }
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-    .testi-card {
-      background: var(--off-white);
-      border-radius: 20px;
-      padding: 32px;
-      position: relative;
-      transition: var(--transition);
-      border: 2px solid transparent;
-    }
-    .testi-card:hover { border-color: rgba(10,45,110,0.12); box-shadow: var(--shadow); transform: translateY(-6px); }
-    .testi-card .quote-icon {
-      font-size: 3rem;
-      color: var(--gold-light);
-      line-height: 1;
-      font-family: Georgia, serif;
-      margin-bottom: 12px;
-    }
-    .testi-card p {
-      color: var(--gray);
-      font-size: 0.92rem;
-      line-height: 1.8;
-      font-style: italic;
-      margin-bottom: 24px;
-    }
-    .testi-author {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .testi-avatar {
-      width: 48px; height: 48px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--blue), var(--blue-light));
-      display: flex; align-items: center; justify-content: center;
-      color: var(--white);
-      font-weight: 700;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-    .testi-author .name { font-weight: 600; font-size: 0.9rem; color: var(--blue); }
-    .testi-author .role { font-size: 0.78rem; color: var(--gray); }
-    .testi-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 4px; }
+/* ============================================================
+   SHARED BITS
+   ============================================================ */
+.eyebrow{
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-size:.72rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--navy-600); background:var(--navy-100);
+  padding:.45rem .9rem; border-radius:100px; margin-bottom:1rem;
+}
+.eyebrow::before{ content:""; width:16px; height:2px; background:var(--gold); border-radius:2px; }
+.eyebrow.on-dark{ color:var(--gold-400); background:rgba(242,177,44,.12); }
 
-    /* ===== ANNOUNCEMENTS ===== */
-    .announcements { padding: 100px 0; background: var(--off-white); }
-    .ann-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 40px;
-    }
-    .ann-card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 24px;
-      display: flex;
-      gap: 20px;
-      transition: var(--transition);
-      margin-bottom: 16px;
-      border: 1px solid rgba(10,45,110,0.07);
-    }
-    .ann-card:hover { box-shadow: var(--shadow); transform: translateX(6px); }
-    .ann-date-box {
-      flex-shrink: 0;
-      width: 60px;
-      text-align: center;
-      background: linear-gradient(135deg, var(--blue), var(--blue-mid));
-      color: var(--white);
-      border-radius: 12px;
-      padding: 10px 8px;
-      line-height: 1.1;
-    }
-    .ann-date-box .day { font-size: 1.5rem; font-weight: 700; font-family: 'Playfair Display', serif; }
-    .ann-date-box .month { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
-    .ann-card .ann-body .ann-badge {
-      display: inline-block;
-      background: rgba(212,160,23,0.15);
-      color: var(--gold);
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 50px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 8px;
-    }
-    .ann-card .ann-body h4 { font-size: 0.95rem; color: var(--blue); font-weight: 600; margin-bottom: 4px; }
-    .ann-card .ann-body p { font-size: 0.83rem; color: var(--gray); line-height: 1.6; }
-    .events-panel {
-      background: linear-gradient(135deg, var(--blue), var(--blue-mid));
-      border-radius: 20px;
-      padding: 32px;
-      color: var(--white);
-    }
-    .events-panel h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .events-panel h3 i { color: var(--gold-light); }
-    .event-item {
-      display: flex;
-      gap: 14px;
-      margin-bottom: 20px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .event-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-    .event-dot {
-      width: 10px; height: 10px;
-      background: var(--gold-light);
-      border-radius: 50%;
-      flex-shrink: 0;
-      margin-top: 5px;
-    }
-    .event-item .ev-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 3px; }
-    .event-item .ev-date { font-size: 0.78rem; color: rgba(255,255,255,0.6); }
+.sec-head{ max-width:640px; margin-bottom:2.5rem; }
+.sec-head.center{ margin-inline:auto; text-align:center; }
+.sec-head h2{ font-size:clamp(1.7rem, 5.5vw, 2.6rem); margin-bottom:.85rem; }
+.sec-head h2 em{ font-style:normal; font-family:var(--display); color:var(--navy-600); }
+.sec-head p{ font-size:1.02rem; }
 
-    /* ===== CONTACT ===== */
-    .contact { padding: 100px 0; background: var(--white); }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-    }
-    .contact-info h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      color: var(--blue);
-      margin-bottom: 16px;
-    }
-    .contact-info p {
-      color: var(--gray);
-      line-height: 1.8;
-      margin-bottom: 32px;
-    }
-    .contact-detail {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      margin-bottom: 24px;
-    }
-    .contact-detail .c-icon {
-      width: 48px; height: 48px;
-      background: linear-gradient(135deg, var(--blue), var(--blue-mid));
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gold-light);
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-    .contact-detail .c-text .t1 { font-weight: 600; color: var(--blue); font-size: 0.9rem; }
-    .contact-detail .c-text .t2 { color: var(--gray); font-size: 0.85rem; }
-    .contact-form {
-      background: var(--off-white);
-      border-radius: 24px;
-      padding: 40px;
-    }
-    .contact-form h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      color: var(--blue);
-      margin-bottom: 28px;
-    }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .form-group { margin-bottom: 20px; }
-    .form-group label {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--blue);
-      margin-bottom: 8px;
-    }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 14px 18px;
-      border: 2px solid rgba(10,45,110,0.1);
-      border-radius: 12px;
-      background: var(--white);
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.9rem;
-      color: var(--dark);
-      transition: var(--transition);
-      outline: none;
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--blue-mid);
-      box-shadow: 0 0 0 4px rgba(26,79,173,0.1);
-    }
-    .form-group textarea { resize: vertical; min-height: 110px; }
-    .form-submit {
-      width: 100%;
-      padding: 16px;
-      background: linear-gradient(135deg, var(--blue), var(--blue-mid));
-      color: var(--white);
-      border: none;
-      border-radius: 12px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-    .form-submit:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: 20px;
-      background: rgba(16,185,129,0.1);
-      border-radius: 12px;
-      color: #10b981;
-      font-weight: 600;
-      margin-top: 16px;
-    }
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
+  padding:.9rem 1.5rem; border-radius:100px;
+  font-weight:700; font-size:.95rem; letter-spacing:.01em;
+  transition:transform .25s, box-shadow .25s, background .25s, color .25s;
+  text-align:center; min-height:48px;
+}
+.btn svg{ width:18px; height:18px; flex-shrink:0; }
+.btn-gold{ background:var(--gold); color:var(--navy-900); box-shadow:0 12px 26px -12px rgba(242,177,44,.9); }
+.btn-gold:hover{ transform:translateY(-2px); box-shadow:0 18px 34px -12px rgba(242,177,44,1); }
+.btn-navy{ background:var(--navy); color:#fff; }
+.btn-navy:hover{ transform:translateY(-2px); background:var(--navy-600); }
+.btn-ghost{ border:1.5px solid rgba(255,255,255,.35); color:#fff; }
+.btn-ghost:hover{ background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.6); }
+.btn-outline{ border:1.5px solid var(--line); color:var(--navy); background:#fff; }
+.btn-outline:hover{ border-color:var(--navy); }
 
-    /* ===== FOOTER ===== */
-    footer {
-      background: var(--dark);
-      padding: 72px 0 28px;
-    }
-    .footer-top {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1.5fr;
-      gap: 40px;
-      padding-bottom: 48px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      margin-bottom: 32px;
-    }
-    .footer-brand .brand-logo {
-      display: flex; align-items: center; gap: 12px;
-      margin-bottom: 20px;
-    }
-    .footer-brand .brand-logo .logo-icon {
-      width: 44px; height: 44px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; color: var(--blue); font-weight: 800;
-      font-family: 'Playfair Display', serif;
-    }
-    .footer-brand .brand-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem; color: var(--white);
-    }
-    .footer-brand .brand-type { font-size: 0.7rem; color: var(--gold-light); letter-spacing: 1px; text-transform: uppercase; }
-    .footer-brand p { color: rgba(255,255,255,0.5); font-size: 0.87rem; line-height: 1.7; margin-bottom: 20px; }
-    .footer-socials { display: flex; gap: 10px; }
-    .footer-socials a {
-      width: 38px; height: 38px;
-      background: rgba(255,255,255,0.07);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.6);
-      transition: var(--transition);
-    }
-    .footer-socials a:hover { background: var(--blue-mid); color: var(--white); transform: translateY(-3px); }
-    .footer-col h4 {
-      font-weight: 700; color: var(--white); font-size: 0.95rem;
-      margin-bottom: 20px;
-      position: relative; padding-bottom: 12px;
-    }
-    .footer-col h4::after {
-      content: '';
-      position: absolute; bottom: 0; left: 0;
-      width: 32px; height: 3px;
-      background: linear-gradient(90deg, var(--gold), var(--gold-light));
-      border-radius: 4px;
-    }
-    .footer-col ul li {
-      margin-bottom: 10px;
-    }
-    .footer-col ul li a {
-      color: rgba(255,255,255,0.5);
-      font-size: 0.87rem;
-      transition: var(--transition);
-      display: flex; align-items: center; gap: 7px;
-    }
-    .footer-col ul li a:hover { color: var(--gold-light); padding-left: 6px; }
-    .footer-col ul li a i { font-size: 0.7rem; }
-    .footer-newsletter p { color: rgba(255,255,255,0.5); font-size: 0.87rem; margin-bottom: 16px; line-height: 1.6; }
-    .newsletter-form {
-      display: flex;
-      background: rgba(255,255,255,0.07);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .newsletter-form input {
-      flex: 1;
-      padding: 13px 16px;
-      background: transparent;
-      border: none;
-      outline: none;
-      color: var(--white);
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.87rem;
-    }
-    .newsletter-form input::placeholder { color: rgba(255,255,255,0.35); }
-    .newsletter-form button {
-      padding: 0 18px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      color: var(--blue);
-      border: none;
-      font-weight: 700;
-      cursor: pointer;
-      transition: var(--transition);
-      font-size: 0.85rem;
-    }
-    .newsletter-form button:hover { background: var(--gold-light); }
-    .footer-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .footer-bottom p { color: rgba(255,255,255,0.35); font-size: 0.83rem; }
-    .footer-bottom p span { color: var(--gold-light); }
-    .footer-bottom-links { display: flex; gap: 20px; }
-    .footer-bottom-links a { color: rgba(255,255,255,0.35); font-size: 0.83rem; transition: var(--transition); }
-    .footer-bottom-links a:hover { color: var(--gold-light); }
+/* Reveal on scroll */
+.reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+.reveal.in{ opacity:1; transform:none; }
+@media (prefers-reduced-motion:reduce){
+  html{ scroll-behavior:auto; }
+  .reveal{ opacity:1 !important; transform:none !important; transition:none; }
+  *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+}
 
-    /* ===== SCROLL TO TOP ===== */
-    .scroll-top {
-      position: fixed;
-      bottom: 32px; right: 32px;
-      width: 48px; height: 48px;
-      background: linear-gradient(135deg, var(--blue), var(--blue-mid));
-      color: var(--white);
-      border: none; border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      opacity: 0;
-      pointer-events: none;
-      z-index: 500;
-    }
-    .scroll-top.visible { opacity: 1; pointer-events: auto; }
-    .scroll-top:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+/* ============================================================
+   CREST
+   ============================================================ */
+.crest{ width:44px; height:auto; flex-shrink:0; }
 
-    /* ===== ANIMATIONS ===== */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
+/* ============================================================
+   TOP BAR + HEADER
+   ============================================================ */
+.topbar{
+  display:none;
+  background:var(--navy-900); color:rgba(255,255,255,.72);
+  font-size:.82rem;
+}
+@media (min-width:900px){ .topbar{ display:block; } }
+.topbar .container{ display:flex; align-items:center; justify-content:space-between; gap:1rem; height:40px; }
+.topbar-left{ display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+.topbar a{ display:inline-flex; align-items:center; gap:.45rem; transition:color .2s; }
+.topbar a:hover{ color:var(--gold-400); }
+.topbar svg{ width:14px; height:14px; color:var(--gold); }
+.topbar-motto{ font-family:var(--display); color:var(--gold-400); letter-spacing:.04em; }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 1024px) {
-      .hero-content { grid-template-columns: 1fr; gap: 48px; padding-top: 140px; }
-      .hero-visual { display: none; }
-      .about-grid { grid-template-columns: 1fr; gap: 48px; }
-      .about-images { display: none; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
-      .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; height: 240px; }
-      .gallery-item:nth-child(5) { grid-column: span 2; }
-      .footer-top { grid-template-columns: 1fr 1fr; }
-      .ann-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .hero-stats { gap: 16px; flex-wrap: wrap; }
-      .programs-grid { grid-template-columns: 1fr; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; }
-      .footer-bottom { justify-content: center; text-align: center; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; }
-      .hero-btns { flex-direction: column; align-items: flex-start; }
-    }
-    @media (max-width: 480px) {
-      .stats-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
-      .gallery-grid { grid-template-columns: 1fr; }
-      .gallery-item:nth-child(1),
-      .gallery-item:nth-child(5) { grid-column: span 1; }
-      .contact-form { padding: 24px; }
-    }
-  </style>
+.header{
+  position:sticky; top:0; z-index:900;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  transition:box-shadow .3s;
+}
+.header.stuck{ box-shadow:0 6px 24px -12px rgba(13,42,82,.28); }
+.header .container{ display:flex; align-items:center; justify-content:space-between; gap:1rem; height:var(--header-h); }
+
+.brand{ display:flex; align-items:center; gap:.7rem; min-width:0; }
+.brand-text{ min-width:0; display:flex; flex-direction:column; }
+.brand-name{
+  display:block;
+  font-family:var(--display); font-size:1.12rem; line-height:1.15; color:var(--navy);
+  letter-spacing:.02em; white-space:nowrap;
+}
+.brand-sub{
+  display:block;
+  font-size:.6rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--gold); white-space:nowrap;
+}
+@media (min-width:400px){ .brand-name{ font-size:1.25rem; } .brand-sub{ font-size:.64rem; } }
+
+.nav-desktop{ display:none; }
+@media (min-width:1024px){
+  .nav-desktop{ display:flex; align-items:center; gap:.35rem; }
+  .nav-desktop a{
+    position:relative; padding:.5rem .8rem; border-radius:10px;
+    font-size:.92rem; font-weight:600; color:var(--ink); transition:color .2s, background .2s;
+  }
+  .nav-desktop a::after{
+    content:""; position:absolute; left:.8rem; right:.8rem; bottom:.25rem; height:2px;
+    background:var(--gold); border-radius:2px; transform:scaleX(0); transform-origin:left;
+    transition:transform .3s cubic-bezier(.16,1,.3,1);
+  }
+  .nav-desktop a:hover::after, .nav-desktop a.active::after{ transform:scaleX(1); }
+  .nav-desktop a.active{ color:var(--navy); }
+}
+.header-cta{ display:none; }
+@media (min-width:1024px){ .header-cta{ display:inline-flex; padding:.7rem 1.25rem; font-size:.88rem; } }
+
+.burger{
+  display:flex; flex-direction:column; justify-content:center; gap:5px;
+  width:46px; height:46px; align-items:center;
+  border-radius:12px; background:var(--navy-100); flex-shrink:0;
+}
+@media (min-width:1024px){ .burger{ display:none; } }
+.burger span{ display:block; width:20px; height:2px; background:var(--navy); border-radius:2px; transition:transform .3s, opacity .2s; }
+body.menu-open .burger span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+body.menu-open .burger span:nth-child(2){ opacity:0; }
+body.menu-open .burger span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+/* Drawer — fixed + translated off-screen so it can never widen the page */
+.drawer{
+  position:fixed; top:0; right:0; bottom:0; z-index:1000;
+  width:min(330px, 84vw);
+  background:var(--navy-900);
+  transform:translateX(105%);
+  transition:transform .4s cubic-bezier(.16,1,.3,1);
+  display:flex; flex-direction:column;
+  padding:1.1rem 1.4rem calc(1.4rem + env(safe-area-inset-bottom));
+  overflow-y:auto; overscroll-behavior:contain;
+}
+body.menu-open .drawer{ transform:translateX(0); }
+.drawer-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem; }
+.drawer-top .brand-name{ color:#fff; }
+.drawer-close{ width:40px; height:40px; border-radius:10px; color:#fff; font-size:1.5rem; line-height:1; background:rgba(255,255,255,.08); }
+.drawer nav{ display:flex; flex-direction:column; }
+.drawer nav a{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:.95rem .2rem; color:rgba(255,255,255,.85); font-weight:600;
+  border-bottom:1px solid rgba(255,255,255,.08); transition:color .2s, padding-left .2s;
+}
+.drawer nav a:hover, .drawer nav a:focus-visible{ color:var(--gold-400); padding-left:.6rem; }
+.drawer nav a span{ color:rgba(255,255,255,.28); font-size:.8rem; }
+.drawer-foot{ margin-top:auto; padding-top:1.8rem; display:grid; gap:.6rem; }
+.drawer-foot .btn{ width:100%; }
+.drawer-contact{ margin-top:1.2rem; font-size:.85rem; color:rgba(255,255,255,.55); line-height:1.6; }
+.drawer-contact strong{ color:var(--gold-400); display:block; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; margin-bottom:.3rem; }
+
+.scrim{
+  position:fixed; inset:0; z-index:999;
+  background:rgba(7,26,52,.55); backdrop-filter:blur(2px);
+  opacity:0; visibility:hidden; transition:opacity .35s, visibility .35s;
+}
+body.menu-open .scrim{ opacity:1; visibility:visible; }
+body.menu-open{ overflow:hidden; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative; overflow:hidden;
+  background:
+    radial-gradient(ellipse 90% 60% at 85% 0%, rgba(242,177,44,.18), transparent 60%),
+    radial-gradient(ellipse 70% 60% at 0% 100%, rgba(23,64,111,.55), transparent 65%),
+    linear-gradient(165deg, var(--navy) 0%, var(--navy-800) 55%, var(--navy-900) 100%);
+  color:#fff;
+  padding:56px 0 68px;
+}
+@media (min-width:900px){ .hero{ padding:88px 0 100px; } }
+/* decorative layer is clipped by .hero's overflow:hidden — no page overflow */
+.hero::before{
+  content:""; position:absolute; inset:0;
+  background-image:radial-gradient(rgba(255,255,255,.16) 1px, transparent 1px);
+  background-size:26px 26px; opacity:.35; pointer-events:none;
+}
+.hero-grid{ position:relative; display:grid; gap:2.8rem; align-items:center; }
+@media (min-width:960px){ .hero-grid{ grid-template-columns:1.05fr .95fr; gap:3.5rem; } }
+
+.hero h1{
+  color:#fff; font-size:clamp(2.05rem, 8.2vw, 3.9rem); line-height:1.08;
+  letter-spacing:-.03em; margin-bottom:1.1rem;
+}
+.hero h1 .hl{ font-family:var(--display); font-weight:400; color:var(--gold-400); letter-spacing:0; }
+.hero p.lead{ font-size:1.03rem; color:rgba(255,255,255,.76); max-width:52ch; margin-bottom:1.8rem; }
+@media (min-width:768px){ .hero p.lead{ font-size:1.12rem; } }
+.hero-actions{ display:flex; flex-wrap:wrap; gap:.75rem; margin-bottom:2.4rem; }
+.hero-actions .btn{ flex:1 1 auto; min-width:min(220px,100%); }
+@media (min-width:520px){ .hero-actions .btn{ flex:0 0 auto; min-width:0; } }
+
+.hero-trust{ display:flex; flex-wrap:wrap; gap:1.6rem 2.2rem; padding-top:1.6rem; border-top:1px solid rgba(255,255,255,.14); }
+.hero-trust div strong{ display:block; font-family:var(--display); font-size:1.55rem; color:var(--gold-400); line-height:1.1; }
+.hero-trust div span{ font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.55); }
+
+/* Hero visual — pure CSS/SVG, no photography needed */
+.hero-visual{ position:relative; display:flex; justify-content:center; }
+.crest-card{
+  position:relative; width:min(380px,100%);
+  background:linear-gradient(155deg, rgba(255,255,255,.14), rgba(255,255,255,.04));
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:28px; padding:2.4rem 1.8rem;
+  text-align:center; backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  box-shadow:0 40px 80px -40px rgba(0,0,0,.7);
+}
+.crest-card .crest{ width:96px; margin:0 auto 1.2rem; }
+.crest-card h3{ font-family:var(--display); font-weight:400; color:#fff; font-size:1.5rem; letter-spacing:.02em; }
+.crest-card .motto{
+  display:inline-block; margin-top:.9rem; padding:.4rem 1rem; border-radius:100px;
+  background:var(--gold); color:var(--navy-900);
+  font-size:.7rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+}
+.crest-card .est{ margin-top:1.4rem; padding-top:1.2rem; border-top:1px dashed rgba(255,255,255,.2); font-size:.85rem; color:rgba(255,255,255,.62); }
+
+.float-chip{
+  position:absolute; display:flex; align-items:center; gap:.55rem;
+  background:#fff; color:var(--navy); border-radius:14px;
+  padding:.65rem .9rem; font-size:.78rem; font-weight:700;
+  box-shadow:var(--shadow-lg); white-space:nowrap;
+  animation:bob 5s ease-in-out infinite;
+}
+.float-chip svg{ width:17px; height:17px; color:var(--gold); flex-shrink:0; }
+/* Chips straddle the card's top-left and bottom-right corners only, so they
+   never land on top of the card's centred text. */
+.float-chip.c1{ top:-14px; left:-6px; animation-delay:0s; }
+.float-chip.c2{ bottom:-16px; right:-6px; animation-delay:1.8s; }
+.float-chip.c3{ display:none; }
+@media (min-width:520px){
+  .float-chip.c1{ left:-20px; }
+  .float-chip.c2{ right:-20px; }
+}
+@keyframes bob{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-9px); } }
+
+/* ============================================================
+   MARQUEE / NOTICE
+   ============================================================ */
+.notice{ background:var(--gold); color:var(--navy-900); overflow:hidden; }
+.notice .container{ display:flex; align-items:center; gap:1rem; height:52px; }
+.notice-tag{
+  flex-shrink:0; font-size:.68rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+  background:var(--navy-900); color:var(--gold); padding:.35rem .8rem; border-radius:100px;
+}
+.notice-track{ flex:1; overflow:hidden; min-width:0; -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent); mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent); }
+.notice-move{ display:flex; gap:3rem; width:max-content; animation:slide 34s linear infinite; font-size:.88rem; font-weight:600; white-space:nowrap; }
+.notice:hover .notice-move{ animation-play-state:paused; }
+@keyframes slide{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+
+/* ============================================================
+   QUICK CARDS
+   ============================================================ */
+.quick{ background:var(--cream); padding:52px 0; }
+.quick-grid{ display:grid; gap:1rem; }
+@media (min-width:640px){ .quick-grid{ grid-template-columns:repeat(3,1fr); gap:1.2rem; } }
+.quick-card{
+  background:#fff; border-radius:var(--radius); padding:1.6rem;
+  border:1px solid var(--line); box-shadow:var(--shadow-sm);
+  transition:transform .3s, box-shadow .3s, border-color .3s;
+}
+.quick-card:hover{ transform:translateY(-5px); box-shadow:var(--shadow); border-color:transparent; }
+.quick-ico{
+  width:46px; height:46px; border-radius:13px; display:grid; place-items:center;
+  background:var(--navy); color:var(--gold); margin-bottom:1rem;
+}
+.quick-ico svg{ width:22px; height:22px; }
+.quick-card h3{ font-size:1.05rem; margin-bottom:.35rem; }
+.quick-card p{ font-size:.92rem; }
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about-grid{ display:grid; gap:2.6rem; align-items:start; }
+@media (min-width:960px){ .about-grid{ grid-template-columns:1fr 1fr; gap:4rem; } }
+.about-body p + p{ margin-top:1rem; }
+.about-body .drop{ font-size:1.05rem; color:var(--ink); font-weight:500; }
+
+.timeline{ margin-top:2rem; display:grid; gap:1.1rem; }
+.tl-item{ display:flex; gap:1rem; }
+.tl-year{
+  flex-shrink:0; width:64px; height:64px; border-radius:16px;
+  display:grid; place-items:center; text-align:center;
+  background:var(--navy-100); color:var(--navy); font-family:var(--display); font-size:1rem; line-height:1.1;
+}
+.tl-item.hi .tl-year{ background:var(--gold); color:var(--navy-900); }
+.tl-body h4{ font-size:1rem; margin-bottom:.2rem; }
+.tl-body p{ font-size:.9rem; }
+
+.stat-panel{
+  background:var(--navy); color:#fff; border-radius:26px; padding:2rem 1.6rem;
+  display:grid; grid-template-columns:repeat(2,1fr); gap:1.6rem 1rem;
+  position:relative; overflow:hidden; box-shadow:var(--shadow-lg);
+}
+@media (min-width:768px){ .stat-panel{ padding:2.6rem 2.2rem; gap:2rem 1.4rem; } }
+.stat-panel::after{
+  content:""; position:absolute; width:220px; height:220px; border-radius:50%;
+  background:radial-gradient(circle, rgba(242,177,44,.28), transparent 70%);
+  top:-90px; right:-70px; pointer-events:none;
+}
+.stat{ position:relative; }
+.stat b{ display:block; font-family:var(--display); font-size:clamp(1.9rem,7vw,2.6rem); color:var(--gold-400); line-height:1; }
+.stat span{ display:block; margin-top:.4rem; font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; color:rgba(255,255,255,.6); }
+
+.vm-grid{ display:grid; gap:1.2rem; margin-top:2rem; }
+@media (min-width:640px){ .vm-grid{ grid-template-columns:1fr 1fr; } }
+.vm-card{ border-radius:var(--radius); padding:1.8rem; border:1px solid var(--line); background:#fff; }
+.vm-card.mission{ background:var(--navy); border-color:transparent; }
+.vm-card.mission h3, .vm-card.mission li{ color:#fff; }
+.vm-card.mission li::before{ background:var(--gold); }
+.vm-head{ display:flex; align-items:center; gap:.7rem; margin-bottom:1rem; }
+.vm-head h3{ font-size:1.25rem; }
+.vm-dots{ display:grid; grid-template-columns:1fr 1fr; gap:3px; flex-shrink:0; }
+.vm-dots i{ width:8px; height:8px; border-radius:50%; background:var(--gold); display:block; }
+.vm-card p{ font-size:.95rem; }
+.vm-card p + p{ margin-top:.8rem; }
+.tick{ display:grid; gap:.7rem; }
+.tick li{ position:relative; padding-left:1.6rem; font-size:.94rem; }
+.tick li::before{
+  content:""; position:absolute; left:0; top:.62em; width:8px; height:8px; border-radius:50%;
+  background:var(--navy-600);
+}
+.vm-card.mission .tick li{ color:rgba(255,255,255,.82); }
+
+/* ============================================================
+   MESSAGES
+   ============================================================ */
+.msg-grid{ display:grid; gap:1.4rem; }
+@media (min-width:900px){ .msg-grid{ grid-template-columns:1fr 1fr; } }
+.msg-card{
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+  padding:1.8rem; position:relative; overflow:hidden;
+  transition:transform .3s, box-shadow .3s;
+}
+.msg-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow); }
+.msg-card::before{ content:""; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--gold),var(--navy-600)); }
+.quote-mark{ font-family:var(--display); font-size:3.4rem; color:var(--gold); line-height:.7; opacity:.35; }
+.msg-card p{ font-size:.95rem; margin:.6rem 0 1.2rem; }
+.msg-who{ display:flex; align-items:center; gap:.9rem; padding-top:1.1rem; border-top:1px solid var(--line); }
+.avatar{
+  width:52px; height:52px; border-radius:50%; flex-shrink:0; display:grid; place-items:center;
+  background:var(--navy); color:var(--gold); font-family:var(--display); font-size:1.05rem;
+}
+.msg-who h4{ font-size:1rem; }
+.msg-who span{ font-size:.8rem; letter-spacing:.05em; text-transform:uppercase; color:var(--gold); font-weight:700; }
+
+/* ============================================================
+   FEATURES
+   ============================================================ */
+.features{ background:var(--cream); }
+.feat-grid{ display:grid; gap:1rem; }
+@media (min-width:600px){ .feat-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (min-width:1000px){ .feat-grid{ grid-template-columns:repeat(3,1fr); gap:1.2rem; } }
+.feat{
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius-sm);
+  padding:1.4rem; display:flex; gap:.95rem; align-items:flex-start;
+  transition:transform .3s, box-shadow .3s, border-color .3s;
+}
+.feat:hover{ transform:translateY(-4px); box-shadow:var(--shadow); border-color:transparent; }
+.feat-ico{
+  width:40px; height:40px; border-radius:11px; flex-shrink:0; display:grid; place-items:center;
+  background:var(--gold-100); color:var(--navy);
+}
+.feat-ico svg{ width:20px; height:20px; }
+.feat h3{ font-size:.98rem; margin-bottom:.25rem; }
+.feat p{ font-size:.87rem; line-height:1.6; }
+
+/* ============================================================
+   ACADEMICS
+   ============================================================ */
+.acad-grid{ display:grid; gap:1.4rem; }
+@media (min-width:900px){ .acad-grid{ grid-template-columns:1.2fr 1fr; } }
+.panel{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:1.8rem; }
+.panel.dark{ background:var(--navy); border-color:transparent; color:rgba(255,255,255,.78); }
+.panel.dark h3, .panel.dark h4{ color:#fff; }
+.panel h3{ font-size:1.25rem; margin-bottom:.4rem; }
+.panel > p{ font-size:.95rem; margin-bottom:1.4rem; }
+
+.pill-set{ display:flex; flex-wrap:wrap; gap:.55rem; }
+.pill{
+  display:inline-flex; align-items:center; gap:.45rem;
+  padding:.5rem .95rem; border-radius:100px; font-size:.85rem; font-weight:600;
+  background:var(--navy-100); color:var(--navy);
+}
+.pill.gold{ background:var(--gold); color:var(--navy-900); }
+.pill.on-dark{ background:rgba(255,255,255,.1); color:#fff; }
+.sub-label{ font-size:.72rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin:1.4rem 0 .7rem; }
+.sub-label:first-of-type{ margin-top:0; }
+.panel.dark .sub-label{ color:var(--gold-400); }
+
+.exam-list{ display:grid; gap:.8rem; margin-top:.4rem; }
+.exam-row{ display:flex; gap:.8rem; align-items:flex-start; font-size:.92rem; }
+.exam-row b{ color:#fff; display:block; font-size:.95rem; }
+.exam-num{
+  flex-shrink:0; width:26px; height:26px; border-radius:8px; display:grid; place-items:center;
+  background:var(--gold); color:var(--navy-900); font-size:.75rem; font-weight:800;
+}
+
+.mini-grid{ display:grid; gap:1rem; margin-top:1.4rem; }
+@media (min-width:640px){ .mini-grid{ grid-template-columns:repeat(3,1fr); } }
+.mini{ border:1px solid var(--line); border-radius:var(--radius-sm); padding:1.3rem; background:#fff; }
+.mini h4{ font-size:.98rem; margin-bottom:.3rem; display:flex; align-items:center; gap:.5rem; }
+.mini h4 svg{ width:18px; height:18px; color:var(--gold); flex-shrink:0; }
+.mini p{ font-size:.87rem; }
+
+/* ============================================================
+   ADMISSIONS
+   ============================================================ */
+.admissions{ background:var(--navy-900); color:rgba(255,255,255,.75); position:relative; overflow:hidden; }
+.admissions::before{
+  content:""; position:absolute; inset:0;
+  background:radial-gradient(ellipse 60% 50% at 20% 0%, rgba(242,177,44,.13), transparent 60%);
+  pointer-events:none;
+}
+.admissions .container{ position:relative; }
+.admissions .sec-head h2{ color:#fff; }
+.admissions .sec-head p{ color:rgba(255,255,255,.68); }
+
+.age-grid{ display:grid; gap:.9rem; margin-bottom:2rem; }
+@media (min-width:600px){ .age-grid{ grid-template-columns:repeat(3,1fr); } }
+.age-card{
+  background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+  border-radius:var(--radius-sm); padding:1.3rem; text-align:center;
+  transition:background .3s, transform .3s, border-color .3s;
+}
+.age-card:hover{ background:rgba(242,177,44,.12); border-color:rgba(242,177,44,.4); transform:translateY(-4px); }
+.age-card b{ display:block; font-family:var(--display); font-size:1.5rem; color:var(--gold-400); }
+.age-card span{ font-size:.85rem; }
+
+.acc{ display:grid; gap:.7rem; }
+.acc-item{ background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:var(--radius-sm); overflow:hidden; }
+.acc-btn{
+  width:100%; display:flex; align-items:center; gap:.9rem; text-align:left;
+  padding:1.1rem 1.2rem; color:#fff; font-weight:700; font-size:.98rem; min-height:56px;
+}
+.acc-btn .ico{ width:34px; height:34px; border-radius:10px; background:rgba(242,177,44,.16); color:var(--gold); display:grid; place-items:center; flex-shrink:0; }
+.acc-btn .ico svg{ width:17px; height:17px; }
+.acc-btn .chev{ margin-left:auto; flex-shrink:0; transition:transform .3s; color:var(--gold); font-size:1.2rem; line-height:1; }
+.acc-item.open .acc-btn .chev{ transform:rotate(45deg); }
+.acc-panel{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .35s cubic-bezier(.16,1,.3,1); }
+.acc-item.open .acc-panel{ grid-template-rows:1fr; }
+.acc-inner{ overflow:hidden; }
+.acc-inner > div{ padding:0 1.2rem 1.3rem; font-size:.92rem; }
+.acc-inner .tick li{ color:rgba(255,255,255,.78); }
+.acc-inner .tick li::before{ background:var(--gold); }
+
+/* Uniform tabs */
+.tabs{ margin-top:2rem; }
+.tab-btns{ display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:1.2rem; }
+.tab-btn{
+  padding:.6rem 1.1rem; border-radius:100px; font-size:.85rem; font-weight:700; min-height:44px;
+  background:rgba(255,255,255,.07); color:rgba(255,255,255,.7); border:1px solid rgba(255,255,255,.12);
+  transition:background .25s, color .25s;
+}
+.tab-btn.active{ background:var(--gold); color:var(--navy-900); border-color:transparent; }
+.tab-pane{ display:none; }
+.tab-pane.active{ display:grid; gap:1rem; animation:fade .35s ease; }
+@media (min-width:700px){ .tab-pane.active{ grid-template-columns:1fr 1fr; } }
+@keyframes fade{ from{ opacity:0; transform:translateY(8px); } to{ opacity:1; transform:none; } }
+.uni-card{ background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:var(--radius-sm); padding:1.3rem; }
+.uni-card h4{ color:#fff; font-size:1rem; margin-bottom:.7rem; display:flex; align-items:center; gap:.5rem; }
+.uni-card h4::before{ content:""; width:10px; height:10px; border-radius:3px; background:#7c5cbf; flex-shrink:0; }
+.uni-card.sports h4::before{ background:#e04b4b; }
+.uni-card dl{ display:grid; gap:.5rem; font-size:.89rem; }
+.uni-card dt{ font-weight:700; color:var(--gold-400); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; }
+.uni-card dd{ color:rgba(255,255,255,.75); }
+
+/* ============================================================
+   DISCIPLINE
+   ============================================================ */
+.disc-grid{ display:grid; gap:1.4rem; }
+@media (min-width:900px){ .disc-grid{ grid-template-columns:1.35fr 1fr; } }
+.rule-list{ display:grid; gap:.75rem; }
+@media (min-width:600px){ .rule-list{ grid-template-columns:1fr 1fr; } }
+.rule{
+  display:flex; gap:.7rem; align-items:flex-start; font-size:.91rem;
+  background:#fff; border:1px solid var(--line); border-radius:12px; padding:.85rem 1rem;
+}
+.rule svg{ width:17px; height:17px; color:var(--gold); flex-shrink:0; margin-top:.22em; }
+.warn-card{ background:var(--gold-100); border:1px solid #f3dfae; border-radius:var(--radius); padding:1.6rem; }
+.warn-card h3{ font-size:1.05rem; margin-bottom:.4rem; display:flex; gap:.5rem; align-items:center; }
+.warn-card h3 svg{ width:20px; height:20px; color:#c98a10; }
+.warn-card p{ font-size:.9rem; margin-bottom:1rem; }
+
+/* ============================================================
+   PROSPECTUS / GALLERY
+   ============================================================ */
+.prospectus{ background:var(--cream); }
+.gal-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:.8rem; }
+@media (min-width:700px){ .gal-grid{ grid-template-columns:repeat(4,1fr); gap:1rem; } }
+.gal-item{
+  position:relative; border-radius:var(--radius-sm); overflow:hidden; cursor:pointer;
+  aspect-ratio:3/4; background:var(--navy-100); border:1px solid var(--line);
+  box-shadow:var(--shadow-sm); transition:transform .35s, box-shadow .35s;
+}
+.gal-item:hover{ transform:translateY(-5px); box-shadow:var(--shadow); }
+.gal-item img{ width:100%; height:100%; object-fit:cover; transition:transform .5s; }
+.gal-item:hover img{ transform:scale(1.06); }
+.gal-cap{
+  position:absolute; inset:auto 0 0 0; padding:1.6rem .8rem .7rem;
+  background:linear-gradient(transparent, rgba(7,26,52,.9));
+  color:#fff; font-size:.78rem; font-weight:700;
+}
+.lightbox{
+  position:fixed; inset:0; z-index:1200; display:none;
+  background:rgba(7,26,52,.94); padding:1rem;
+  align-items:center; justify-content:center;
+}
+.lightbox.on{ display:flex; }
+.lightbox img{ max-width:100%; max-height:88vh; border-radius:10px; object-fit:contain; }
+.lb-close{
+  position:absolute; top:max(1rem, env(safe-area-inset-top)); right:1rem;
+  width:46px; height:46px; border-radius:50%; background:rgba(255,255,255,.14); color:#fff; font-size:1.6rem; line-height:1;
+}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact-grid{ display:grid; gap:1.6rem; }
+@media (min-width:960px){ .contact-grid{ grid-template-columns:1fr 1.05fr; gap:2.4rem; } }
+.info-list{ display:grid; gap:1rem; margin-bottom:1.6rem; }
+.info-row{ display:flex; gap:1rem; align-items:flex-start; }
+.info-ico{ width:44px; height:44px; border-radius:13px; background:var(--navy); color:var(--gold); display:grid; place-items:center; flex-shrink:0; }
+.info-ico svg{ width:20px; height:20px; }
+.info-row h4{ font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:.15rem; }
+.info-row p, .info-row a{ font-size:.98rem; color:var(--ink); font-weight:600; line-height:1.5; word-break:break-word; }
+.info-row a:hover{ color:var(--navy-600); }
+
+.map-wrap{ border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); box-shadow:var(--shadow-sm); }
+.map-wrap iframe{ width:100%; height:250px; border:0; }
+.map-cta{
+  display:flex; align-items:center; justify-content:center; gap:.5rem;
+  padding:.9rem 1rem; min-height:48px;
+  background:var(--navy); color:#fff; font-weight:700; font-size:.92rem;
+  transition:background .25s;
+}
+.map-cta svg{ width:17px; height:17px; color:var(--gold); flex-shrink:0; }
+.map-cta:hover{ background:var(--navy-600); }
+
+.form-card{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:1.7rem; box-shadow:var(--shadow); }
+@media (min-width:768px){ .form-card{ padding:2.2rem; } }
+.form-card h3{ font-size:1.3rem; margin-bottom:.3rem; }
+.form-card > p{ font-size:.92rem; margin-bottom:1.5rem; }
+.field{ margin-bottom:1rem; }
+.field label{ display:block; font-size:.78rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--ink); margin-bottom:.4rem; }
+.field input, .field select, .field textarea{
+  width:100%; padding:.85rem 1rem; border:1.5px solid var(--line); border-radius:12px;
+  background:var(--cream); font-size:1rem; transition:border-color .25s, background .25s;
+  min-height:48px;
+}
+.field textarea{ min-height:110px; resize:vertical; }
+.field input:focus, .field select:focus, .field textarea:focus{ outline:none; border-color:var(--gold); background:#fff; }
+.field-row{ display:grid; gap:1rem; }
+@media (min-width:560px){ .field-row{ grid-template-columns:1fr 1fr; } }
+.form-note{ font-size:.8rem; margin-top:.9rem; text-align:center; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{ background:var(--navy-900); color:rgba(255,255,255,.6); padding:60px 0 0; }
+.f-grid{ display:grid; gap:2.4rem; padding-bottom:2.6rem; }
+@media (min-width:640px){ .f-grid{ grid-template-columns:1fr 1fr; } }
+@media (min-width:1000px){ .f-grid{ grid-template-columns:1.6fr 1fr 1fr 1.2fr; gap:2.6rem; } }
+.f-brand{ display:flex; align-items:center; gap:.8rem; margin-bottom:1.1rem; }
+.f-brand .brand-name{ color:#fff; }
+footer p{ font-size:.9rem; line-height:1.75; }
+.f-title{ color:#fff; font-size:1rem; margin-bottom:1.1rem; position:relative; padding-bottom:.7rem; }
+.f-title::after{ content:""; position:absolute; left:0; bottom:0; width:34px; height:3px; background:var(--gold); border-radius:2px; }
+.f-links{ display:grid; gap:.2rem; }
+.f-links a{ font-size:.9rem; display:inline-flex; align-items:center; gap:.5rem; padding:.45rem 0; transition:color .2s, transform .2s; }
+.f-links a::before{ content:"›"; color:var(--gold); }
+.f-links a:hover{ color:var(--gold-400); transform:translateX(3px); }
+.socials{ display:flex; gap:.6rem; margin-top:1.2rem; flex-wrap:wrap; }
+.socials a{
+  width:42px; height:42px; border-radius:12px; display:grid; place-items:center;
+  background:rgba(255,255,255,.08); color:#fff; transition:background .25s, color .25s, transform .25s;
+}
+.socials a svg{ width:19px; height:19px; }
+.socials a:hover{ background:var(--gold); color:var(--navy-900); transform:translateY(-3px); }
+.f-contact{ display:grid; gap:.9rem; }
+.f-contact div{ display:flex; gap:.7rem; align-items:flex-start; font-size:.9rem; }
+.f-contact svg{ width:16px; height:16px; color:var(--gold); flex-shrink:0; margin-top:.28em; }
+.f-contact a{ word-break:break-word; display:inline-block; padding:.2rem 0; }
+.f-contact a:hover{ color:var(--gold-400); }
+.f-bottom{
+  border-top:1px solid rgba(255,255,255,.1); padding:1.4rem 0 calc(1.4rem + env(safe-area-inset-bottom));
+  display:flex; flex-direction:column; gap:.5rem; align-items:center; text-align:center;
+  font-size:.83rem;
+}
+@media (min-width:768px){ .f-bottom{ flex-direction:row; justify-content:space-between; text-align:left; } }
+.f-bottom b{ color:var(--gold-400); font-weight:700; }
+
+/* ============================================================
+   FLOATING ACTIONS
+   ============================================================ */
+/* Horizontal on phones so the stack occupies one row instead of covering
+   a third of the screen; vertical once there is room to spare. */
+.fab-stack{
+  position:fixed; z-index:800;
+  right:max(14px, env(safe-area-inset-right));
+  bottom:calc(14px + env(safe-area-inset-bottom));
+  display:grid; grid-auto-flow:column; gap:.55rem; align-items:center;
+}
+@media (min-width:640px){ .fab-stack{ grid-auto-flow:row; gap:.6rem; } }
+.fab{
+  width:52px; height:52px; border-radius:50%; display:grid; place-items:center;
+  box-shadow:var(--shadow-lg); transition:transform .25s, opacity .3s, visibility .3s;
+}
+.fab:hover{ transform:scale(1.08); }
+.fab svg{ width:24px; height:24px; }
+.fab-wa{ background:#25d366; color:#fff; }
+.fab-call{ background:var(--navy); color:var(--gold); }
+@media (min-width:1024px){ .fab-call{ display:none; } }
+.fab-top{ background:var(--gold); color:var(--navy-900); opacity:0; visibility:hidden; }
+.fab-top.show{ opacity:1; visibility:visible; }
+</style>
 </head>
 <body>
 
-  <!-- PRELOADER -->
-  <div id="preloader">
-    <div class="preloader-inner">
-      <div class="preloader-logo">ST.JAMES</div>
-      <div class="preloader-bar"></div>
+<!-- ================= TOP BAR ================= -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <a href="tel:+918056308139">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+        +91 80563 08139
+      </a>
+      <a href="mailto:stjamespalacode@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+        stjamespalacode@gmail.com
+      </a>
+      <a href="#contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        Koosukal, Palacode — 636808
+      </a>
     </div>
+    <span class="topbar-motto">“Our Utmost for the Highest”</span>
   </div>
+</div>
 
-  <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="#home" class="nav-logo">
-          <div class="logo-icon">SJ</div>
-          <div class="logo-text">
-            <div class="school-name">ST.JAMES</div>
-            <div class="school-type">Matriculation School</div>
-          </div>
-        </a>
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#programs">Programs</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="#contact" class="nav-cta">Enroll Now</a></li>
-        </ul>
-        <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-    </div>
+<!-- ================= HEADER ================= -->
+<header class="header" id="header">
+  <div class="container">
+    <a href="#home" class="brand" aria-label="St. James Matriculation School — home">
+      <svg class="crest" viewBox="0 0 64 74" aria-hidden="true">
+        <path d="M32 2 60 11v27c0 16-13 27-28 33C17 65 4 54 4 38V11Z" fill="#0d2a52"/>
+        <path d="M32 2 60 11v27c0 16-13 27-28 33C17 65 4 54 4 38V11Z" fill="none" stroke="#f2b12c" stroke-width="3"/>
+        <path d="M32 17c-4 5-7 8-7 12a7 7 0 0 0 14 0c0-4-3-7-7-12Z" fill="#f2b12c"/>
+        <text x="32" y="57" font-family="Marcellus, Georgia, serif" font-size="15" fill="#ffffff" text-anchor="middle">SJ</text>
+      </svg>
+      <span class="brand-text">
+        <span class="brand-name">ST. JAMES</span>
+        <span class="brand-sub">Matriculation School</span>
+      </span>
+    </a>
+
+    <nav class="nav-desktop" id="navDesktop" aria-label="Main">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#academics">Academics</a>
+      <a href="#campus">Campus Life</a>
+      <a href="#admissions">Admissions</a>
+      <a href="#prospectus">Prospectus</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#admissions" class="btn btn-gold header-cta">Apply Now</a>
+
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ================= MOBILE DRAWER ================= -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="drawer-top">
+    <span class="brand-name">ST. JAMES</span>
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">&times;</button>
+  </div>
+  <nav>
+    <a href="#home">Home <span>01</span></a>
+    <a href="#about">About Us <span>02</span></a>
+    <a href="#academics">Academics <span>03</span></a>
+    <a href="#campus">Campus Life <span>04</span></a>
+    <a href="#admissions">Admissions <span>05</span></a>
+    <a href="#discipline">Code of Conduct <span>06</span></a>
+    <a href="#prospectus">Prospectus <span>07</span></a>
+    <a href="#contact">Contact <span>08</span></a>
   </nav>
-
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#home" onclick="closeMenu()">Home</a>
-    <a href="#about" onclick="closeMenu()">About</a>
-    <a href="#programs" onclick="closeMenu()">Programs</a>
-    <a href="#gallery" onclick="closeMenu()">Gallery</a>
-    <a href="#contact" onclick="closeMenu()">Contact</a>
-    <a href="#contact" onclick="closeMenu()" style="background:linear-gradient(135deg,#d4a017,#f5c842);color:#0a2d6e;font-weight:700;text-align:center;border-radius:10px;margin-top:8px;">Enroll Now</a>
+  <div class="drawer-foot">
+    <a href="tel:+918056308139" class="btn btn-gold">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+      Call the School
+    </a>
+    <a href="#admissions" class="btn btn-ghost">Admission Enquiry</a>
+    <p class="drawer-contact">
+      <strong>Visit us</strong>
+      Koosukal, Palacode – 636808,<br />Dharmapuri Dt., Tamil Nadu
+    </p>
   </div>
+</aside>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-particles" id="particles"></div>
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-text">
-          <div class="hero-badge">
-            <i class="fas fa-star"></i>
-            Affiliated & Recognized School
-          </div>
-          <h1 class="hero-title">
-            Welcome to<br/>
-            <span class="highlight">ST.JAMES</span><br/>
-            Matriculation School
-          </h1>
-          <p class="hero-desc">
-            Learning Today, Leading Tomorrow.<br />
-            We nurture bright minds, build strong character, and inspire a lifelong love of learning in every student.
-          </p>
-          <div class="hero-btns">
-            <a href="#contact" class="btn btn-primary"><i class="fas fa-graduation-cap"></i> Enroll Now</a>
-            <a href="#about" class="btn btn-outline"><i class="fas fa-play-circle"></i> Learn More</a>
-          </div>
-          <div class="hero-stats">
-            <div class="hero-stat">
-              <div class="num">25<span>+</span></div>
-              <div class="lbl">Years of Excellence</div>
-            </div>
-            <div class="hero-stat">
-              <div class="num">1500<span>+</span></div>
-              <div class="lbl">Students Enrolled</div>
-            </div>
-            <div class="hero-stat">
-              <div class="num">98<span>%</span></div>
-              <div class="lbl">Pass Rate</div>
-            </div>
-          </div>
+<main>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow on-dark">Established 2010 · Palacode</span>
+        <h1>Your Pathway to <span class="hl">Global Excellence</span></h1>
+        <p class="lead">
+          Quality English-medium education for rural students — equal to city standards.
+          From LKG to Class X, we build confident, disciplined and capable young minds,
+          one child at a time.
+        </p>
+        <div class="hero-actions">
+          <a href="#admissions" class="btn btn-gold">
+            Admissions Open
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+          </a>
+          <a href="#about" class="btn btn-ghost">Discover the School</a>
         </div>
-        <div class="hero-visual">
-          <img src="images/IMG20260811091453.jpg" alt="School" class="hero-img-main" />
-          <img src="images/IMG20260811091519.jpg" alt="Students" class="hero-img-float" />
-          <div class="hero-badge-float">
-            <span class="big">A+</span>
-            <span class="small">Grade School</span>
-          </div>
+        <div class="hero-trust">
+          <div><strong data-count="16" data-suffix="+">0</strong><span>Years of Service</span></div>
+          <div><strong>LKG–X</strong><span>Classes Offered</span></div>
+          <div><strong data-count="100" data-suffix="%">0</strong><span>CCTV Secured</span></div>
         </div>
       </div>
-    </div>
-    <div class="hero-scroll">
-      <span>Scroll Down</span>
-      <div class="scroll-dot"></div>
-    </div>
-  </section>
 
-  <!-- MARQUEE BAND -->
-  <div class="marquee-band">
-    <div class="marquee-inner" id="marqueeInner"></div>
-  </div>
-
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-images fade-in">
-          <img src="images/IMG20260811091528.jpg" alt="School Building" class="about-img1" />
-          <img src="images/IMG20260811091615.jpg" alt="Classroom" class="about-img2" />
-          <div class="about-award">
-            <i class="fas fa-trophy"></i>
-            <div class="text">
-              <div class="t1">Award Winning School</div>
-              <div class="t2">Excellence in Education</div>
-            </div>
-          </div>
+      <div class="hero-visual">
+        <div class="crest-card">
+          <svg class="crest" viewBox="0 0 64 74" aria-hidden="true">
+            <path d="M32 2 60 11v27c0 16-13 27-28 33C17 65 4 54 4 38V11Z" fill="rgba(255,255,255,.08)"/>
+            <path d="M32 2 60 11v27c0 16-13 27-28 33C17 65 4 54 4 38V11Z" fill="none" stroke="#f2b12c" stroke-width="2.5"/>
+            <path d="M32 15c-5 6-8 10-8 14.5a8 8 0 0 0 16 0C40 25 37 21 32 15Z" fill="#f2b12c"/>
+            <text x="32" y="59" font-family="Marcellus, Georgia, serif" font-size="14" fill="#ffffff" text-anchor="middle">SJ</text>
+          </svg>
+          <h3>St. James Matriculation School</h3>
+          <span class="motto">Our Utmost for the Highest</span>
+          <p class="est">Reaching the unreached — making education a bridge to a brighter future.</p>
         </div>
-        <div class="about-text fade-in">
-          <div class="tag">About Our School</div>
-          <h2>A Place Where Every Child <em>Shines Bright</em></h2>
-          <div class="gold-line" style="margin:0 0 20px"></div>
+
+        <span class="float-chip c1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2.5 9 2.5 12 0v-5"/></svg>
+          NEP-aligned Curriculum
+        </span>
+        <span class="float-chip c2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 17h4V5H2v12h3m5 0a2 2 0 1 0 4 0m-4 0a2 2 0 1 1 4 0m6 0h1a1 1 0 0 0 1-1v-4l-3-4h-3v9h1m3 0a2 2 0 1 1-4 0m4 0a2 2 0 1 0-4 0"/></svg>
+          GPS-Tracked Buses
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NOTICE MARQUEE ================= -->
+<div class="notice" aria-label="Announcements">
+  <div class="container">
+    <span class="notice-tag">Latest</span>
+    <div class="notice-track">
+      <div class="notice-move" id="marquee"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= QUICK CARDS ================= -->
+<section class="quick">
+  <div class="container">
+    <div class="quick-grid">
+      <div class="quick-card reveal">
+        <div class="quick-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>School Timings</h3>
+        <p>9:00 AM – 4:00 PM<br />Assembly: 9:00 – 9:15 AM</p>
+      </div>
+      <div class="quick-card reveal">
+        <div class="quick-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 17h4V5H2v12h3m5 0a2 2 0 1 0 4 0m-4 0a2 2 0 1 1 4 0m6 0h1a1 1 0 0 0 1-1v-4l-3-4h-3v9h1m3 0a2 2 0 1 1-4 0m4 0a2 2 0 1 0-4 0"/></svg></div>
+        <h3>Safe Transport</h3>
+        <p>Buses on all major routes with GPS and live tracking.</p>
+      </div>
+      <div class="quick-card reveal">
+        <div class="quick-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6M9 11h2"/></svg></div>
+        <h3>Admissions Open</h3>
+        <p>LKG to Class X. Enquire today for the coming academic year.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="pad" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal">
+        <span class="eyebrow">About Our School</span>
+        <h2 style="font-size:clamp(1.7rem,5.5vw,2.6rem); margin-bottom:1rem;">A small beginning with a <em style="font-style:normal;font-family:var(--display);color:var(--navy-600)">very big vision</em></h2>
+        <div class="about-body">
+          <p class="drop">
+            St. James Matriculation School was established in 2010 with a clear vision — to provide
+            quality education to students from rural areas, equal to city standards.
+          </p>
           <p>
-            ST.JAMES Matriculation School is a premier educational institution dedicated to providing quality education that shapes the minds and character of the next generation. We follow a student-centred approach combining academic excellence with holistic development.
+            We began as a small institution with just 47 students, and have grown steadily through
+            dedication and commitment. The school faced real challenges during the COVID period,
+            with a temporary decline in student strength. With a well-organised system and the strong
+            support of parents and staff, it has made a remarkable comeback and is now growing rapidly.
           </p>
           <p>
-            With highly qualified and dedicated teachers, state-of-the-art facilities, and a vibrant campus life, we ensure every student reaches their fullest potential in a safe and nurturing environment.
+            Today we focus on quality education, individual attention and the overall development of
+            every student. With dedicated teachers and a clear vision, St. James is emerging as one of
+            the leading institutions in the area.
           </p>
-          <div class="about-features">
-            <div class="about-feat">
-              <div class="icon"><i class="fas fa-chalkboard-teacher"></i></div>
-              <div class="info">
-                <div class="t1">Expert Teachers</div>
-                <div class="t2">Highly qualified staff</div>
-              </div>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item hi">
+            <div class="tl-year">2010</div>
+            <div class="tl-body"><h4>Founded with 47 students</h4><p>A vision to reach the unreached in and around Palacode.</p></div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">2020</div>
+            <div class="tl-body"><h4>Weathering the pandemic</h4><p>Held together by committed staff and trusting parents.</p></div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">Today</div>
+            <div class="tl-body"><h4>Growing rapidly</h4><p>Smart classrooms, labs, AI &amp; abacus, and a full co-curricular programme.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="stat-panel">
+          <div class="stat"><b data-count="2010" data-plain="1">0</b><span>Year Established</span></div>
+          <div class="stat"><b data-count="47" data-suffix="">0</b><span>Students at Inception</span></div>
+          <div class="stat"><b>LKG–X</b><span>Classes Offered</span></div>
+          <div class="stat"><b data-count="5" data-suffix="+">0</b><span>Co-Curricular Programmes</span></div>
+        </div>
+
+        <div class="vm-grid">
+          <div class="vm-card">
+            <div class="vm-head">
+              <span class="vm-dots"><i></i><i></i><i></i><i></i></span>
+              <h3>Our Vision</h3>
             </div>
-            <div class="about-feat">
-              <div class="icon"><i class="fas fa-flask"></i></div>
-              <div class="info">
-                <div class="t1">Modern Labs</div>
-                <div class="t2">Science & Computer labs</div>
-              </div>
+            <p>
+              Our motto, <strong style="color:var(--ink)">“Our Utmost for the Highest,”</strong> inspires us to
+              strive for excellence in all that we do. We envision providing high-quality education to
+              rural students at par with city standards, ensuring equal opportunities for every child.
+            </p>
+            <p>
+              With a strong commitment to “reaching the unreached,” we aim to empower students through
+              knowledge, values and holistic development.
+            </p>
+          </div>
+          <div class="vm-card mission">
+            <div class="vm-head">
+              <span class="vm-dots"><i></i><i></i><i></i><i></i></span>
+              <h3>Our Mission</h3>
             </div>
-            <div class="about-feat">
-              <div class="icon"><i class="fas fa-futbol"></i></div>
-              <div class="info">
-                <div class="t1">Sports & Arts</div>
-                <div class="t2">Extra-curricular activities</div>
-              </div>
-            </div>
-            <div class="about-feat">
-              <div class="icon"><i class="fas fa-shield-alt"></i></div>
-              <div class="info">
-                <div class="t1">Safe Campus</div>
-                <div class="t2">Secure & caring environment</div>
-              </div>
-            </div>
+            <ul class="tick">
+              <li>Provide quality education to rural students, equal to city standards</li>
+              <li>Strengthen basic learning, concepts and language skills</li>
+              <li>Offer individual attention and support for every child</li>
+              <li>Create a disciplined, value-based, student-friendly environment</li>
+              <li>Empower every student with confidence, knowledge and life skills</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- STATS -->
-  <section class="stats-section">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-card fade-in">
-          <div class="stat-icon"><i class="fas fa-user-graduate"></i></div>
-          <div class="stat-num" data-target="1500">0<span>+</span></div>
-          <div class="stat-lbl">Students Enrolled</div>
-        </div>
-        <div class="stat-card fade-in">
-          <div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-          <div class="stat-num" data-target="80">0<span>+</span></div>
-          <div class="stat-lbl">Qualified Teachers</div>
-        </div>
-        <div class="stat-card fade-in">
-          <div class="stat-icon"><i class="fas fa-award"></i></div>
-          <div class="stat-num" data-target="50">0<span>+</span></div>
-          <div class="stat-lbl">Awards & Recognitions</div>
-        </div>
-        <div class="stat-card fade-in">
-          <div class="stat-icon"><i class="fas fa-percentage"></i></div>
-          <div class="stat-num" data-target="98">0<span>%</span></div>
-          <div class="stat-lbl">Pass Rate</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROGRAMS -->
-  <section class="programs" id="programs">
-    <div class="container">
-      <div class="section-title fade-in">Our Academic Programs</div>
-      <div class="gold-line fade-in"></div>
-      <div class="section-subtitle fade-in">We offer a comprehensive curriculum from primary to higher secondary levels</div>
-      <div class="programs-grid">
-        <div class="prog-card fade-in">
-          <div class="prog-icon"><i class="fas fa-child"></i></div>
-          <h3>Primary School</h3>
-          <p>Building strong foundations through interactive learning, creativity, and play-based activities that spark curiosity and love for education.</p>
-          <span class="prog-grade">Grades I – V</span>
-        </div>
-        <div class="prog-card fade-in">
-          <div class="prog-icon"><i class="fas fa-book-open"></i></div>
-          <h3>Middle School</h3>
-          <p>Developing critical thinking and analytical skills through an engaging and structured curriculum with focus on core subjects.</p>
-          <span class="prog-grade">Grades VI – VIII</span>
-        </div>
-        <div class="prog-card fade-in">
-          <div class="prog-icon"><i class="fas fa-graduation-cap"></i></div>
-          <h3>High School</h3>
-          <p>Preparing students for board examinations with intensive coaching, regular assessments, and personalised academic guidance.</p>
-          <span class="prog-grade">Grades IX – X</span>
-        </div>
-        <div class="prog-card fade-in">
-          <div class="prog-icon"><i class="fas fa-laptop-code"></i></div>
-          <h3>Computer Science</h3>
-          <p>Modern computer education with hands-on lab sessions covering programming, digital literacy, and essential tech skills.</p>
-          <span class="prog-grade">All Grades</span>
-        </div>
-        <div class="prog-card fade-in">
-          <div class="prog-icon"><i class="fas fa-palette"></i></div>
-          <h3>Arts & Culture</h3>
-          <p>Fostering creativity and self-expression through visual arts, music, dance, drama, and cultural heritage activities.</p>
-          <span class="prog-grade">All Grades</span>
-        </div>
-        <div class="prog-card fade-in">
-          <div class="prog-icon"><i class="fas fa-running"></i></div>
-          <h3>Sports & Physical Ed.</h3>
-          <p>Building teamwork, discipline, and fitness through a diverse range of sports, games, and physical education programs.</p>
-          <span class="prog-grade">All Grades</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section class="gallery" id="gallery">
-    <div class="container">
-      <div class="section-title fade-in">Our School Gallery</div>
-      <div class="gold-line fade-in"></div>
-      <div class="section-subtitle fade-in">A glimpse into the vibrant life at ST.JAMES Matriculation School</div>
-      <div class="gallery-grid">
-        <div class="gallery-item fade-in" onclick="openLightbox('images/IMG20260811091453.jpg')">
-          <img src="images/IMG20260811091453.jpg" alt="School" />
-          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> View</span></div>
-        </div>
-        <div class="gallery-item fade-in" onclick="openLightbox('images/IMG20260811091519.jpg')">
-          <img src="images/IMG20260811091519.jpg" alt="Students" />
-          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> View</span></div>
-        </div>
-        <div class="gallery-item fade-in" onclick="openLightbox('images/IMG20260811091528.jpg')">
-          <img src="images/IMG20260811091528.jpg" alt="Campus" />
-          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> View</span></div>
-        </div>
-        <div class="gallery-item fade-in" onclick="openLightbox('images/IMG20260811091615.jpg')">
-          <img src="images/IMG20260811091615.jpg" alt="Classroom" />
-          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> View</span></div>
-        </div>
-        <div class="gallery-item fade-in" onclick="openLightbox('images/IMG20260811091635.jpg')">
-          <img src="images/IMG20260811091635.jpg" alt="Activities" />
-          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> View</span></div>
-        </div>
-        <div class="gallery-item fade-in" onclick="openLightbox('images/IMG20260811091650.jpg')">
-          <img src="images/IMG20260811091650.jpg" alt="Events" />
-          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> View</span></div>
-        </div>
-        <div class="gallery-item fade-in" onclick="openLightbox('images/IMG20260811091657.jpg')">
-          <img src="images/IMG20260811091657.jpg" alt="Sports" />
-          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> View</span></div>
-        </div>
-        <div class="gallery-item fade-in" onclick="openLightbox('images/IMG20260811091707.jpg')">
-          <img src="images/IMG20260811091707.jpg" alt="School Life" />
-          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> View</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-    <div class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></div>
-    <img src="" alt="Gallery" id="lightboxImg" />
   </div>
+</section>
 
-  <!-- TESTIMONIALS -->
-  <section class="testimonials">
-    <div class="container">
-      <div class="section-title fade-in">What Parents Say</div>
-      <div class="gold-line fade-in"></div>
-      <div class="section-subtitle fade-in">Hear from families who trust ST.JAMES for their children's education</div>
-      <div class="testimonials-grid">
-        <div class="testi-card fade-in">
-          <div class="quote-icon">"</div>
-          <div class="testi-stars">★★★★★</div>
-          <p>My son has blossomed since joining ST.JAMES. The teachers are incredibly dedicated and the school's environment is so positive and encouraging. Highly recommend to every parent!</p>
-          <div class="testi-author">
-            <div class="testi-avatar">RK</div>
-            <div>
-              <div class="name">Ramesh Kumar</div>
-              <div class="role">Parent of Grade VII Student</div>
-            </div>
+<!-- ================= MESSAGES ================= -->
+<section class="pad" style="background:var(--cream)">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">From Our Leadership</span>
+      <h2>Words that <em>guide us</em></h2>
+      <p>A shared conviction that every child deserves the opportunity to learn, grow and succeed.</p>
+    </div>
+    <div class="msg-grid">
+      <article class="msg-card reveal">
+        <div class="quote-mark">&ldquo;</div>
+        <p>
+          Greetings to all. It gives me great pleasure to welcome you to St. James Matriculation School.
+          Our institution was founded with a clear vision to provide quality education to students from
+          rural areas, equal to city standards. We believe every child deserves the opportunity to learn,
+          grow and succeed.
+        </p>
+        <p>
+          With this goal, we continue our journey of “reaching the unreached,” making education a bridge
+          to a brighter future. At St. James we focus on both academic excellence and the holistic
+          development of each child, shaping them into confident, responsible and compassionate individuals.
+          Together, let us strive for excellence and build a generation rooted in knowledge, character and integrity.
+        </p>
+        <div class="msg-who">
+          <div class="avatar">JG</div>
+          <div>
+            <h4>Rev. P. John Ganesh &amp; Mrs. Joy Sheela</h4>
+            <span>Correspondent</span>
           </div>
         </div>
-        <div class="testi-card fade-in">
-          <div class="quote-icon">"</div>
-          <div class="testi-stars">★★★★★</div>
-          <p>The school maintains excellent academic standards while also focusing on sports and arts. My daughter has grown so much in confidence. The staff truly cares about every child.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">MP</div>
-            <div>
-              <div class="name">Meena Priya</div>
-              <div class="role">Parent of Grade IV Student</div>
-            </div>
+      </article>
+
+      <article class="msg-card reveal">
+        <div class="quote-mark">&ldquo;</div>
+        <p>
+          Greetings. At St. James Matriculation School we believe every child can learn and succeed with
+          the right guidance. Our school nurtures students from diverse backgrounds, especially those who
+          need strong foundational support. We patiently guide students to understand concepts, develop
+          language skills and build confidence.
+        </p>
+        <p>
+          With dedicated teachers and a well-organised system, we turn challenges into achievements. Our
+          focus on quality education and individual attention helps students show steady improvement in
+          knowledge, marks and confidence. With the trust and support of parents, our school is growing as
+          one of the leading institutions in the town.
+        </p>
+        <div class="msg-who">
+          <div class="avatar">AJ</div>
+          <div>
+            <h4>Mr. Andrews J</h4>
+            <span>Principal</span>
           </div>
         </div>
-        <div class="testi-card fade-in">
-          <div class="quote-icon">"</div>
-          <div class="testi-stars">★★★★★</div>
-          <p>ST.JAMES is not just a school — it's a second home. The facilities are world-class, the curriculum is comprehensive, and the atmosphere is perfect for holistic development.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">AJ</div>
-            <div>
-              <div class="name">Arjun Jayakumar</div>
-              <div class="role">Parent of Grade IX Student</div>
-            </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="pad features" id="campus">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Why St. James</span>
+      <h2>Everything a growing child <em>needs to thrive</em></h2>
+      <p>Fourteen commitments we make to every family who walks through our gates.</p>
+    </div>
+    <div class="feat-grid" id="featGrid"></div>
+  </div>
+</section>
+
+<!-- ================= ACADEMICS ================= -->
+<section class="pad" id="academics">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Academics</span>
+      <h2>A curriculum built for <em>real understanding</em></h2>
+      <p>Education from LKG to Class X on an NEP-aligned State Board curriculum, equivalent to CBSE standards.</p>
+    </div>
+
+    <div class="acad-grid">
+      <div class="panel reveal">
+        <h3>Academic &amp; Co-Curricular</h3>
+        <p>
+          We provide smart classrooms, science and computer laboratories and a library for effective,
+          practical learning — and we ensure individual attention and holistic growth for every student.
+        </p>
+
+        <p class="sub-label">Our Programmes</p>
+        <div class="pill-set">
+          <span class="pill gold">Communicative English</span>
+          <span class="pill gold">Phonics</span>
+          <span class="pill gold">Abacus</span>
+          <span class="pill gold">Artificial Intelligence</span>
+        </div>
+
+        <p class="sub-label">Co-Curricular Activities</p>
+        <div class="pill-set">
+          <span class="pill">Silambam</span>
+          <span class="pill">Taekwondo</span>
+          <span class="pill">Scouts &amp; Guides</span>
+          <span class="pill">Skating</span>
+          <span class="pill">Dancing</span>
+        </div>
+
+        <div class="mini-grid">
+          <div class="mini">
+            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>Smart Classrooms</h4>
+            <p>Digital lessons that make concepts visible and memorable.</p>
+          </div>
+          <div class="mini">
+            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3v6l-5 9a2 2 0 0 0 1.8 3h12.4a2 2 0 0 0 1.8-3l-5-9V3M8 3h8M7 14h10"/></svg>Science &amp; Computer Labs</h4>
+            <p>Hands-on practical work from the earliest classes.</p>
+          </div>
+          <div class="mini">
+            <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>Library</h4>
+            <p>A reading habit built early, in English and Tamil.</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ANNOUNCEMENTS -->
-  <section class="announcements">
-    <div class="container">
-      <div class="section-title fade-in">News & Announcements</div>
-      <div class="gold-line fade-in"></div>
-      <div class="section-subtitle fade-in">Stay updated with the latest happenings at our school</div>
-      <div class="ann-grid">
-        <div>
-          <div class="ann-card fade-in">
-            <div class="ann-date-box"><div class="day">15</div><div class="month">Aug</div></div>
-            <div class="ann-body">
-              <div class="ann-badge">Event</div>
-              <h4>Independence Day Celebration 2026</h4>
-              <p>Join us for a grand Independence Day celebration with flag hoisting, cultural programs, and special performances by students.</p>
-            </div>
-          </div>
-          <div class="ann-card fade-in">
-            <div class="ann-date-box"><div class="day">01</div><div class="month">Sep</div></div>
-            <div class="ann-body">
-              <div class="ann-badge">Admission</div>
-              <h4>Admissions Open for 2026–27</h4>
-              <p>Enrollments for the academic year 2026-27 are now open. Apply early to secure your child's seat. Limited seats available.</p>
-            </div>
-          </div>
-          <div class="ann-card fade-in">
-            <div class="ann-date-box"><div class="day">20</div><div class="month">Aug</div></div>
-            <div class="ann-body">
-              <div class="ann-badge">Exam</div>
-              <h4>First Term Examination Schedule Released</h4>
-              <p>The first term examination timetable has been released. Students are advised to download and prepare accordingly.</p>
-            </div>
-          </div>
-          <div class="ann-card fade-in">
-            <div class="ann-date-box"><div class="day">10</div><div class="month">Sep</div></div>
-            <div class="ann-body">
-              <div class="ann-badge">Sports</div>
-              <h4>Annual Sports Day – Registrations Open</h4>
-              <p>Annual Sports Day registrations are open for all students. Participate in athletics, team sports, and more exciting events.</p>
-            </div>
-          </div>
+      <div class="panel dark reveal">
+        <h3>Examination &amp; Assessment</h3>
+        <p>
+          We follow a structured assessment system to monitor and improve student performance. Our
+          evaluation focuses on continuous improvement, concept understanding and the academic progress
+          of every student.
+        </p>
+
+        <p class="sub-label">Assessment Includes</p>
+        <div class="exam-list">
+          <div class="exam-row"><span class="exam-num">1</span><span><b>Periodic Slip Tests</b>Short, frequent checks on understanding.</span></div>
+          <div class="exam-row"><span class="exam-num">2</span><span><b>Unit Tests</b>Chapter-wise consolidation.</span></div>
         </div>
-        <div class="events-panel fade-in">
-          <h3><i class="fas fa-calendar-alt"></i> Upcoming Events</h3>
-          <div class="event-item">
-            <div class="event-dot"></div>
-            <div>
-              <div class="ev-title">PTM – Parent-Teacher Meeting</div>
-              <div class="ev-date">August 25, 2026</div>
-            </div>
-          </div>
-          <div class="event-item">
-            <div class="event-dot"></div>
-            <div>
-              <div class="ev-title">Science Exhibition</div>
-              <div class="ev-date">September 5, 2026</div>
-            </div>
-          </div>
-          <div class="event-item">
-            <div class="event-dot"></div>
-            <div>
-              <div class="ev-title">Annual Sports Day</div>
-              <div class="ev-date">September 15, 2026</div>
-            </div>
-          </div>
-          <div class="event-item">
-            <div class="event-dot"></div>
-            <div>
-              <div class="ev-title">Cultural Day Celebration</div>
-              <div class="ev-date">October 2, 2026</div>
-            </div>
-          </div>
-          <div class="event-item">
-            <div class="event-dot"></div>
-            <div>
-              <div class="ev-title">Term I Examinations</div>
-              <div class="ev-date">October 10–20, 2026</div>
-            </div>
-          </div>
+
+        <p class="sub-label">Examinations</p>
+        <div class="exam-list">
+          <div class="exam-row"><span class="exam-num">3</span><span><b>Mid-Term Exams (I, II, III)</b>Progress checkpoints across the year.</span></div>
+          <div class="exam-row"><span class="exam-num">4</span><span><b>Term Exams (Term I, II, III)</b>Followed by a Parent-Teacher Meeting.</span></div>
+        </div>
+
+        <p class="sub-label">Student Council</p>
+        <p style="font-size:.92rem">
+          The Student Council gives students the chance to take up leadership roles and
+          responsibilities — developing leadership, discipline, teamwork and confidence, and preparing
+          them to become responsible individuals.
+        </p>
+
+        <p class="sub-label">Parent-Teacher Meeting</p>
+        <p style="font-size:.92rem">
+          PTMs are conducted after each Term Examination to discuss student progress and performance,
+          strengthening communication between parents and teachers.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ADMISSIONS ================= -->
+<section class="pad admissions" id="admissions">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="eyebrow on-dark">Admissions</span>
+      <h2 style="color:#fff">Join the St. James <em style="color:var(--gold-400)">family</em></h2>
+      <p>Everything you need to know before you visit us — age criteria, fees, transport and uniform.</p>
+    </div>
+
+    <div class="age-grid reveal">
+      <div class="age-card"><b>3 – 4 yrs</b><span>LKG</span></div>
+      <div class="age-card"><b>4 – 5 yrs</b><span>UKG</span></div>
+      <div class="age-card"><b>5 – 6 yrs</b><span>Class I</span></div>
+    </div>
+
+    <div class="acc reveal" id="acc">
+      <div class="acc-item open">
+        <button class="acc-btn" aria-expanded="true">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          School Timings
+          <span class="chev">+</span>
+        </button>
+        <div class="acc-panel"><div class="acc-inner"><div>
+          <ul class="tick">
+            <li>School hours: <strong style="color:#fff">9:00 AM to 4:00 PM</strong></li>
+            <li>Morning assembly: 9:00 AM to 9:15 AM</li>
+          </ul>
+        </div></div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-btn" aria-expanded="false">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 17h4V5H2v12h3m5 0a2 2 0 1 0 4 0m-4 0a2 2 0 1 1 4 0m6 0h1a1 1 0 0 0 1-1v-4l-3-4h-3v9h1m3 0a2 2 0 1 1-4 0m4 0a2 2 0 1 0-4 0"/></svg></span>
+          Transportation
+          <span class="chev">+</span>
+        </button>
+        <div class="acc-panel"><div class="acc-inner"><div>
+          <ul class="tick">
+            <li>School transport is available for all major routes around the school</li>
+            <li>Safe and reliable service, with GPS and live tracking</li>
+          </ul>
+        </div></div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-btn" aria-expanded="false">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span>
+          Fee Details
+          <span class="chev">+</span>
+        </button>
+        <div class="acc-panel"><div class="acc-inner"><div>
+          <ul class="tick">
+            <li>Fees are to be paid in two terms</li>
+            <li><strong style="color:#fff">Term I</strong> — at the time of admission / before June</li>
+            <li><strong style="color:#fff">Term II</strong> — before the end of October</li>
+            <li>Payment can be made through online mode or cash</li>
+          </ul>
+        </div></div></div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-btn" aria-expanded="false">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/></svg></span>
+          Withdrawal &amp; Transfer Certificate
+          <span class="chev">+</span>
+        </button>
+        <div class="acc-panel"><div class="acc-inner"><div>
+          <ul class="tick">
+            <li>A written notice must be given at least one month in advance for withdrawal</li>
+            <li>In the absence of notice, one month's fee will be charged</li>
+          </ul>
+        </div></div></div>
+      </div>
+    </div>
+
+    <!-- Uniform tabs -->
+    <div class="tabs reveal" id="uniformTabs">
+      <h3 style="color:#fff;font-size:1.25rem;margin-bottom:.9rem">Uniform Details</h3>
+      <div class="tab-btns" role="tablist">
+        <button class="tab-btn active" data-tab="t1" role="tab" aria-selected="true">LKG – V Std</button>
+        <button class="tab-btn" data-tab="t2" role="tab" aria-selected="false">VI – IX Std</button>
+        <button class="tab-btn" data-tab="t3" role="tab" aria-selected="false">Sports (Wed &amp; Sat)</button>
+      </div>
+
+      <div class="tab-pane active" id="t1">
+        <div class="uni-card">
+          <h4>Boys — Mon, Tue, Thu, Fri</h4>
+          <dl>
+            <dt>Dress</dt><dd>Purple checked shirt and purple trousers</dd>
+            <dt>Accessories</dt><dd>Purple belt and tie</dd>
+            <dt>Footwear</dt><dd>Black shoes with purple socks</dd>
+          </dl>
+        </div>
+        <div class="uni-card">
+          <h4>Girls — Mon, Tue, Thu, Fri</h4>
+          <dl>
+            <dt>Dress</dt><dd>Purple checked shirt and purple pinafore</dd>
+            <dt>Accessories</dt><dd>Purple belt and tie</dd>
+            <dt>Footwear</dt><dd>Black shoes with purple socks</dd>
+            <dt>Hair code</dt><dd>Two plaits with purple ribbon</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="tab-pane" id="t2">
+        <div class="uni-card">
+          <h4>Boys — Mon, Tue, Thu, Fri</h4>
+          <dl>
+            <dt>Dress</dt><dd>Purple checked shirt and purple pant</dd>
+            <dt>Accessories</dt><dd>Purple belt and tie</dd>
+            <dt>Footwear</dt><dd>Black shoes with purple socks</dd>
+          </dl>
+        </div>
+        <div class="uni-card">
+          <h4>Girls — Mon, Tue, Thu, Fri</h4>
+          <dl>
+            <dt>Dress</dt><dd>Purple checked chudidar and purple pant with coat</dd>
+            <dt>Footwear</dt><dd>Black shoes with purple socks</dd>
+            <dt>Hair code</dt><dd>Folded two plaits with purple ribbon</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="tab-pane" id="t3">
+        <div class="uni-card sports">
+          <h4>LKG – IX Std · Sports Uniform</h4>
+          <dl>
+            <dt>Dress</dt><dd>Red shirt and navy blue pant</dd>
+            <dt>Footwear</dt><dd>White shoes and white socks</dd>
+            <dt>Girls hair code</dt><dd>Two plaits with blue ribbon</dd>
+          </dl>
+        </div>
+        <div class="uni-card sports">
+          <h4>Worn on</h4>
+          <dl>
+            <dt>Days</dt><dd>Wednesday and Saturday</dd>
+            <dt>Applies to</dt><dd>All students from LKG to IX Std</dd>
+          </dl>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <div class="section-title fade-in">Get In Touch</div>
-      <div class="gold-line fade-in"></div>
-      <div class="section-subtitle fade-in">We'd love to hear from you. Reach out for admissions, queries, or a campus visit.</div>
-      <div class="contact-grid">
-        <div class="contact-info fade-in">
-          <h2>We're Here to<br/><span style="color:var(--blue-mid)">Help You</span></h2>
-          <p>Whether you're looking to enroll your child, want to learn more about our programs, or just want to say hello — we're just a call or message away.</p>
-          <div class="contact-detail">
-            <div class="c-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <div class="c-text">
-              <div class="t1">Our Address</div>
-              <div class="t2">ST.JAMES Matriculation School, Tamil Nadu, India</div>
+    <div style="margin-top:2.4rem;text-align:center" class="reveal">
+      <a href="#contact" class="btn btn-gold">Enquire About Admission</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DISCIPLINE ================= -->
+<section class="pad" id="discipline">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Code of Conduct</span>
+      <h2>Discipline that <em>builds character</em></h2>
+      <p>Clear, consistent expectations — shared between the school, the student and the family.</p>
+    </div>
+
+    <div class="disc-grid">
+      <div class="rule-list reveal" id="ruleList"></div>
+
+      <div class="warn-card reveal">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+          Please Note
+        </h3>
+        <p>A student may be debarred or terminated from the school:</p>
+        <ul class="tick">
+          <li>If co-operation from the parent is lacking in matters of discipline and/or there is irregular payment of fees</li>
+          <li>For uncivilised behaviour</li>
+          <li>For persistent irregularity in attendance</li>
+        </ul>
+        <p style="margin:1.2rem 0 0;font-size:.88rem">
+          Speaking English within the campus is compulsory — while we equally encourage students to
+          value their cultural traditions.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROSPECTUS ================= -->
+<section class="pad prospectus" id="prospectus">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Prospectus</span>
+      <h2>Read our <em>printed brochure</em></h2>
+      <p>Tap any page to view it full size — the same booklet we hand to visiting families.</p>
+    </div>
+    <div class="gal-grid reveal" id="galGrid"></div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Prospectus page">
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <img src="" alt="" id="lbImg" />
+</div>
+
+<!-- ================= CONTACT ================= -->
+<section class="pad" id="contact">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Get in Touch</span>
+      <h2>We would love to <em>meet you</em></h2>
+      <p>Visit the campus, call us, or send an enquiry — we reply to every family.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="info-list">
+          <div class="info-row">
+            <div class="info-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div>
+              <h4>Campus Address</h4>
+              <a href="https://maps.app.goo.gl/GNxVd22NnTR9kZ3f6" target="_blank" rel="noopener">Koosukal, Palacode – 636808,<br />Dharmapuri District, Tamil Nadu</a>
             </div>
           </div>
-          <div class="contact-detail">
-            <div class="c-icon"><i class="fas fa-phone"></i></div>
-            <div class="c-text">
-              <div class="t1">Phone Number</div>
-              <div class="t2">+91 98765 43210</div>
+          <div class="info-row">
+            <div class="info-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></div>
+            <div>
+              <h4>Phone</h4>
+              <a href="tel:+918056308139">+91 80563 08139</a><br />
+              <a href="tel:+917845323844">+91 78453 23844</a>
             </div>
           </div>
-          <div class="contact-detail">
-            <div class="c-icon"><i class="fas fa-envelope"></i></div>
-            <div class="c-text">
-              <div class="t1">Email Address</div>
-              <div class="t2">info@stjamesschool.edu.in</div>
+          <div class="info-row">
+            <div class="info-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:stjamespalacode@gmail.com">stjamespalacode@gmail.com</a>
             </div>
           </div>
-          <div class="contact-detail">
-            <div class="c-icon"><i class="fas fa-clock"></i></div>
-            <div class="c-text">
-              <div class="t1">School Hours</div>
-              <div class="t2">Mon – Fri: 8:30 AM – 4:00 PM | Sat: 8:30 AM – 1:00 PM</div>
+          <div class="info-row">
+            <div class="info-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <div>
+              <h4>Office Hours</h4>
+              <p>Monday – Saturday, 9:00 AM – 4:00 PM</p>
             </div>
           </div>
         </div>
-        <div class="contact-form fade-in">
-          <h3>Send Us a Message</h3>
-          <form id="contactForm" onsubmit="submitForm(event)">
-            <div class="form-row">
-              <div class="form-group">
-                <label>Parent's Name</label>
-                <input type="text" placeholder="Enter your name" required />
-              </div>
-              <div class="form-group">
-                <label>Phone Number</label>
-                <input type="tel" placeholder="+91 00000 00000" required />
-              </div>
+
+        <div class="map-wrap">
+          <!-- cid = the school's actual Google Maps place record, so the pin is
+               exact and carries the school name rather than a text-search guess -->
+          <iframe
+            title="Map to St. James Matriculation School, Koosukal, Palacode"
+            src="https://www.google.com/maps?cid=7253296626980138392&hl=en&output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+          <a class="map-cta" href="https://maps.app.goo.gl/GNxVd22NnTR9kZ3f6" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 19-9-9 19-2-8-8-2Z"/></svg>
+            Get Directions
+          </a>
+        </div>
+      </div>
+
+      <div class="form-card reveal">
+        <h3>Admission Enquiry</h3>
+        <p>Fill this in and we'll open WhatsApp with your details ready to send.</p>
+        <form id="enquiryForm" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label for="pname">Parent / Guardian Name</label>
+              <input type="text" id="pname" name="pname" placeholder="Your full name" required />
             </div>
-            <div class="form-group">
-              <label>Email Address</label>
-              <input type="email" placeholder="your@email.com" required />
+            <div class="field">
+              <label for="phone">Mobile Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="10-digit mobile" required />
             </div>
-            <div class="form-group">
-              <label>Enquiry Type</label>
-              <select required>
-                <option value="">Select enquiry type</option>
-                <option>Admission Enquiry</option>
-                <option>Fee Structure</option>
-                <option>Academic Information</option>
-                <option>Transport</option>
-                <option>General Query</option>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="cname">Student Name</label>
+              <input type="text" id="cname" name="cname" placeholder="Child's name" />
+            </div>
+            <div class="field">
+              <label for="cls">Class Applying For</label>
+              <select id="cls" name="cls">
+                <option>LKG</option><option>UKG</option>
+                <option>Class I</option><option>Class II</option><option>Class III</option>
+                <option>Class IV</option><option>Class V</option><option>Class VI</option>
+                <option>Class VII</option><option>Class VIII</option><option>Class IX</option>
+                <option>Class X</option>
               </select>
             </div>
-            <div class="form-group">
-              <label>Message</label>
-              <textarea placeholder="Write your message here..."></textarea>
-            </div>
-            <button type="submit" class="form-submit">
-              <i class="fas fa-paper-plane"></i> Send Message
-            </button>
-            <div class="form-success" id="formSuccess">
-              <i class="fas fa-check-circle"></i> Thank you! We'll contact you soon.
-            </div>
-          </form>
+          </div>
+          <div class="field">
+            <label for="msg">Your Message</label>
+            <textarea id="msg" name="msg" placeholder="Anything you'd like to ask us…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold" style="width:100%">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.4.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3Z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
+            Send Enquiry on WhatsApp
+          </button>
+          <p class="form-note">
+            Prefer email? Write to
+            <a href="mailto:stjamespalacode@gmail.com" style="color:var(--navy-600);font-weight:700">stjamespalacode@gmail.com</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <div class="f-grid">
+      <div>
+        <div class="f-brand">
+          <svg class="crest" viewBox="0 0 64 74" aria-hidden="true">
+            <path d="M32 2 60 11v27c0 16-13 27-28 33C17 65 4 54 4 38V11Z" fill="rgba(255,255,255,.06)"/>
+            <path d="M32 2 60 11v27c0 16-13 27-28 33C17 65 4 54 4 38V11Z" fill="none" stroke="#f2b12c" stroke-width="3"/>
+            <path d="M32 17c-4 5-7 8-7 12a7 7 0 0 0 14 0c0-4-3-7-7-12Z" fill="#f2b12c"/>
+            <text x="32" y="57" font-family="Marcellus, Georgia, serif" font-size="15" fill="#ffffff" text-anchor="middle">SJ</text>
+          </svg>
+          <span class="brand-text">
+            <span class="brand-name">ST. JAMES</span>
+            <span class="brand-sub">Matriculation School</span>
+          </span>
+        </div>
+        <p>
+          Thank you for exploring St. James Matriculation School. We look forward to welcoming you to
+          our vibrant community where excellence meets opportunity.
+        </p>
+        <div class="socials">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.6c-.29-.04-1.28-.13-2.44-.13-2.41 0-4.06 1.47-4.06 4.17v2.33H7.5V13h2.7v8h3.3Z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2s-.2-1.4-.8-2c-.75-.8-1.6-.8-2-.85C16 4.2 12 4.2 12 4.2h-.01s-4 0-6.8.2c-.4.05-1.25.05-2 .85-.6.6-.8 2-.8 2S2.2 8.8 2.2 10.5v1.6c0 1.6.2 3.3.2 3.3s.2 1.4.8 2c.75.8 1.75.77 2.2.86 1.6.15 6.8.2 6.8.2s4 0 6.8-.21c.4-.05 1.25-.05 2-.85.6-.6.8-2 .8-2s.2-1.65.2-3.3v-1.6c0-1.65-.2-3.3-.2-3.3ZM9.95 14.2V8.4l5.15 2.9-5.15 2.9Z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="f-title">Quick Links</h4>
+        <div class="f-links">
+          <a href="#about">About Us</a>
+          <a href="#academics">Academics</a>
+          <a href="#campus">Campus Life</a>
+          <a href="#admissions">Admissions</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="f-title">Programmes</h4>
+        <div class="f-links">
+          <a href="#academics">Communicative English</a>
+          <a href="#academics">Phonics</a>
+          <a href="#academics">Abacus</a>
+          <a href="#academics">Artificial Intelligence</a>
+          <a href="#academics">Sports &amp; Arts</a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="f-title">Reach Us</h4>
+        <div class="f-contact">
+          <div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span><a href="https://maps.app.goo.gl/GNxVd22NnTR9kZ3f6" target="_blank" rel="noopener">Koosukal, Palacode – 636808,<br />Dharmapuri Dt., Tamil Nadu</a></span>
+          </div>
+          <div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+            <span><a href="tel:+918056308139">+91 80563 08139</a><br /><a href="tel:+917845323844">+91 78453 23844</a></span>
+          </div>
+          <div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+            <span><a href="mailto:stjamespalacode@gmail.com">stjamespalacode@gmail.com</a></span>
+          </div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <div class="brand-logo">
-            <div class="logo-icon">SJ</div>
-            <div>
-              <div class="brand-name">ST.JAMES</div>
-              <div class="brand-type">Matriculation School</div>
-            </div>
-          </div>
-          <p>Learning Today, Leading Tomorrow. Committed to excellence in education and the holistic development of every child entrusted to our care.</p>
-          <div class="footer-socials">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-          </div>
-        </div>
-        <div class="footer-col">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
-            <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
-            <li><a href="#programs"><i class="fas fa-chevron-right"></i> Programs</a></li>
-            <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
-            <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Programs</h4>
-          <ul>
-            <li><a href="#programs"><i class="fas fa-chevron-right"></i> Primary School</a></li>
-            <li><a href="#programs"><i class="fas fa-chevron-right"></i> Middle School</a></li>
-            <li><a href="#programs"><i class="fas fa-chevron-right"></i> High School</a></li>
-            <li><a href="#programs"><i class="fas fa-chevron-right"></i> Computer Science</a></li>
-            <li><a href="#programs"><i class="fas fa-chevron-right"></i> Sports & Arts</a></li>
-          </ul>
-        </div>
-        <div class="footer-newsletter footer-col">
-          <h4>Newsletter</h4>
-          <p>Subscribe to get the latest news, events, and announcements from our school.</p>
-          <div class="newsletter-form">
-            <input type="email" placeholder="Your email address" />
-            <button onclick="subscribeNewsletter(this)">Subscribe</button>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 <span>ST.JAMES Matriculation School</span>. All rights reserved.</p>
-        <div class="footer-bottom-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Use</a>
-          <a href="#">Sitemap</a>
-        </div>
-      </div>
+    <div class="f-bottom">
+      <span>&copy; <span id="year">2026</span> <b>St. James Matriculation School</b>. All rights reserved.</span>
+      <span>Our Utmost for the Highest</span>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <!-- SCROLL TO TOP -->
-  <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-    <i class="fas fa-arrow-up"></i>
+<!-- ================= FLOATING ACTIONS ================= -->
+<div class="fab-stack">
+  <a href="https://wa.me/918056308139" target="_blank" rel="noopener" class="fab fab-wa" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.4.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3Z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
+  </a>
+  <a href="tel:+918056308139" class="fab fab-call" aria-label="Call the school">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+  </a>
+  <button class="fab fab-top" id="fabTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 19V5m-7 7 7-7 7 7"/></svg>
   </button>
+</div>
 
-  <script>
-    /* ===== PRELOADER ===== */
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        const pre = document.getElementById('preloader');
-        pre.style.opacity = '0';
-        setTimeout(() => pre.style.display = 'none', 600);
-      }, 1800);
-    });
+<script>
+(function(){
+  'use strict';
 
-    /* ===== NAVBAR SCROLL ===== */
-    const navbar = document.getElementById('navbar');
-    const scrollTopBtn = document.getElementById('scrollTop');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 60);
-      scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
-    });
+  /* ---------- Data ---------- */
+  var FEATURES = [
+    ['Individual Attention','Personal attention and strong foundational training for every single student.','user'],
+    ['City-Standard Quality','High-quality teaching methods on par with the best city schools.','star'],
+    ['Dedicated Teachers','Experienced, caring and committed teachers who know each child by name.','heart'],
+    ['Play Way Kindergarten','Joyful, activity-based learning for our youngest learners.','smile'],
+    ['Higher Order Thinking','Teaching that develops reasoning, analysis and problem-solving.','brain'],
+    ['Holistic Development','Focus on the complete growth of every student, not just marks.','sun'],
+    ['Values &amp; Discipline','Education firmly rooted in discipline and good moral values.','shield'],
+    ['English &amp; Phonics','Strong language skills through Communicative English and Phonics.','chat'],
+    ['Skill Activities','Abacus, Silambam, Taekwondo, Scouts &amp; Guides and more.','trophy'],
+    ['GPS-Tracked Transport','Safe school buses with GPS and live tracking on all major routes.','bus'],
+    ['Modern Computing &amp; AI','Up-to-date computer education with an introduction to Artificial Intelligence.','cpu'],
+    ['CCTV Secured Campus','The entire campus, including classrooms, is under CCTV surveillance.','camera'],
+    ['Safe Learning Space','A safe, peaceful and encouraging environment to learn and grow.','home'],
+    ['Trusted by Parents','A reliable institution that has earned the confidence of families.','check']
+  ];
 
-    /* ===== MOBILE MENU ===== */
-    function toggleMenu() {
-      document.getElementById('hamburger').classList.toggle('open');
-      document.getElementById('mobileMenu').classList.toggle('open');
+  var ICONS = {
+    user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+    star:'<path d="m12 3 2.7 5.6 6.3.9-4.5 4.4 1 6.1-5.5-2.9L6.5 20l1-6.1L3 9.5l6.3-.9L12 3Z"/>',
+    heart:'<path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 1 0-7 7.1l8.7 8.7 8.8-8.7a5 5 0 0 0 0-7.1Z"/>',
+    smile:'<circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/>',
+    brain:'<path d="M9.5 2A2.5 2.5 0 0 0 7 4.5v.6A2.5 2.5 0 0 0 5 7.5 2.5 2.5 0 0 0 4 12a2.5 2.5 0 0 0 1 4.4A2.5 2.5 0 0 0 7 19v.5A2.5 2.5 0 0 0 12 20V4.5A2.5 2.5 0 0 0 9.5 2Zm5 0A2.5 2.5 0 0 1 17 4.5v.6a2.5 2.5 0 0 1 2 2.4 2.5 2.5 0 0 1 1 4.5 2.5 2.5 0 0 1-1 4.4 2.5 2.5 0 0 1-2 2.1v.5a2.5 2.5 0 0 1-5 .5"/>',
+    sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.2 4.2l1.4 1.4m12.8 12.8 1.4 1.4M2 12h2m16 0h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/>',
+    shield:'<path d="M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4Z"/><path d="m9 12 2 2 4-4"/>',
+    chat:'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/>',
+    trophy:'<path d="M8 21h8m-4-4v4M6 4h12v5a6 6 0 0 1-12 0V4Z"/><path d="M6 6H4a2 2 0 0 0 2 4m12-4h2a2 2 0 0 1-2 4"/>',
+    bus:'<path d="M10 17h4V5H2v12h3m5 0a2 2 0 1 0 4 0m-4 0a2 2 0 1 1 4 0m6 0h1a1 1 0 0 0 1-1v-4l-3-4h-3v9h1m3 0a2 2 0 1 1-4 0m4 0a2 2 0 1 0-4 0"/>',
+    cpu:'<rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v3m6-3v3M9 19v3m6-3v3M2 9h3m-3 6h3m14-6h3m-3 6h3"/>',
+    camera:'<path d="m23 7-7 5 7 5V7Z"/><rect x="1" y="5" width="15" height="14" rx="2"/>',
+    home:'<path d="m3 10 9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M9 22V12h6v10"/>',
+    check:'<circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/>'
+  };
+
+  var RULES = [
+    'Students must be regular and punctual in attendance',
+    'Neat and tidy uniform is compulsory',
+    'Students should reach school before the assembly bell',
+    'Homework must be completed and required books brought regularly',
+    'Attendance during tests and examinations is compulsory',
+    'Use of mobile phones and electronic gadgets is strictly prohibited',
+    'Students must respect teachers, staff and fellow students',
+    'Speaking in English within the school campus is compulsory',
+    'Students should take care of school property and maintain cleanliness',
+    'Misconduct, bullying or inappropriate language will not be tolerated'
+  ];
+
+  /* Filenames only — thumbnails come from images/thumb/, full pages from images/opt/ */
+  var PAGES = [
+    ['IMG20260811091453.jpg','Cover'],
+    ['IMG20260811091519.jpg',"Founder's Message"],
+    ['IMG20260811091615.jpg','About &amp; Discipline'],
+    ['IMG20260811091635.jpg','Academics &amp; Exams'],
+    ['IMG20260811091528.jpg','Our Specialities'],
+    ['IMG20260811091657.jpg','Admission Information'],
+    ['IMG20260811091650.jpg','Achievements'],
+    ['IMG20260811091707.jpg','Contact &amp; Location']
+  ];
+
+  var NOTICES = [
+    'Admissions open for LKG to Class X — enquire today',
+    'School hours: 9:00 AM to 4:00 PM · Assembly 9:00 – 9:15 AM',
+    'GPS-tracked school buses on all major routes',
+    'Entire campus under CCTV surveillance',
+    'Term II fees to be paid before the end of October'
+  ];
+
+  function $(s, c){ return (c || document).querySelector(s); }
+  function $$(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
+
+  /* ---------- Build feature cards ---------- */
+  var featGrid = $('#featGrid');
+  featGrid.innerHTML = FEATURES.map(function(f){
+    return '<article class="feat reveal">' +
+      '<span class="feat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + ICONS[f[2]] + '</svg></span>' +
+      '<div><h3>' + f[0] + '</h3><p>' + f[1] + '</p></div>' +
+    '</article>';
+  }).join('');
+
+  /* ---------- Build rules ---------- */
+  $('#ruleList').innerHTML = RULES.map(function(r){
+    return '<div class="rule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m5 12 5 5L20 7"/></svg><span>' + r + '</span></div>';
+  }).join('');
+
+  /* ---------- Build prospectus grid ---------- */
+  $('#galGrid').innerHTML = PAGES.map(function(p, i){
+    var label = p[1].replace(/&amp;/g, 'and');
+    return '<figure class="gal-item" data-src="images/opt/' + p[0] + '" tabindex="0" role="button" aria-label="View page: ' + label + '">' +
+      '<img src="images/thumb/' + p[0] + '" alt="Prospectus page ' + (i + 1) + ': ' + label + '" width="640" height="853" loading="lazy" decoding="async" />' +
+      '<figcaption class="gal-cap">' + p[1] + '</figcaption>' +
+    '</figure>';
+  }).join('');
+
+  /* ---------- Marquee (duplicated for a seamless -50% loop) ---------- */
+  var items = NOTICES.map(function(n){ return '<span>★ ' + n + '</span>'; }).join('');
+  $('#marquee').innerHTML = items + items;
+
+  /* ---------- Footer year ---------- */
+  $('#year').textContent = new Date().getFullYear();
+
+  /* ---------- Mobile drawer ---------- */
+  var burger = $('#burger'), drawer = $('#drawer'), scrim = $('#scrim');
+  function setMenu(open){
+    document.body.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    drawer.setAttribute('aria-hidden', String(!open));
+  }
+  burger.addEventListener('click', function(){ setMenu(!document.body.classList.contains('menu-open')); });
+  scrim.addEventListener('click', function(){ setMenu(false); });
+  $('#drawerClose').addEventListener('click', function(){ setMenu(false); });
+  $$('#drawer nav a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape'){ setMenu(false); closeLb(); }
+  });
+
+  /* ---------- Header shadow + back-to-top ---------- */
+  var header = $('#header'), fabTop = $('#fabTop');
+  function onScroll(){
+    var y = window.scrollY;
+    header.classList.toggle('stuck', y > 8);
+    fabTop.classList.toggle('show', y > 500);
+    spy();
+  }
+  fabTop.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+  /* ---------- Scrollspy ---------- */
+  var navLinks = $$('#navDesktop a');
+  var sections = navLinks.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function spy(){
+    var pos = window.scrollY + 140, current = 0;
+    for (var i = 0; i < sections.length; i++){
+      if (sections[i] && sections[i].offsetTop <= pos) current = i;
     }
-    function closeMenu() {
-      document.getElementById('hamburger').classList.remove('open');
-      document.getElementById('mobileMenu').classList.remove('open');
-    }
+    navLinks.forEach(function(a, i){ a.classList.toggle('active', i === current); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-    /* ===== PARTICLES ===== */
-    const particleContainer = document.getElementById('particles');
-    for (let i = 0; i < 18; i++) {
-      const s = document.createElement('span');
-      const size = Math.random() * 60 + 20;
-      s.style.cssText = `
-        width:${size}px; height:${size}px;
-        left:${Math.random() * 100}%;
-        animation-duration:${Math.random() * 12 + 8}s;
-        animation-delay:${Math.random() * 8}s;
-      `;
-      particleContainer.appendChild(s);
-    }
-
-    /* ===== MARQUEE ===== */
-    const marqueeItems = [
-      '🎓 Admissions Open 2026–27',
-      '📢 Annual Sports Day – September 15',
-      '🏆 Independence Day Celebration – August 15',
-      '📚 First Term Exams – October 10–20',
-      '🌟 Best School Award 2025',
-      '🎨 Science Exhibition – September 5',
-      '📝 Parent-Teacher Meeting – August 25',
-    ];
-    const inner = document.getElementById('marqueeInner');
-    const doubled = [...marqueeItems, ...marqueeItems];
-    inner.innerHTML = doubled.map(t => `<span class="marquee-item"><i class="fas fa-circle" style="font-size:0.4rem"></i> ${t}</span>`).join('');
-
-    /* ===== SCROLL ANIMATIONS ===== */
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i * 80);
-        }
+  /* ---------- Reveal on scroll ---------- */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
       });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px' });
+    $$('.reveal').forEach(function(el, i){
+      el.style.transitionDelay = (i % 4) * 70 + 'ms';
+      io.observe(el);
+    });
+  } else {
+    $$('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
 
-    /* ===== COUNTER ANIMATION ===== */
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          const target = +el.dataset.target;
-          const suffix = el.querySelector('span').outerHTML;
-          let current = 0;
-          const step = Math.ceil(target / 60);
-          const interval = setInterval(() => {
-            current = Math.min(current + step, target);
-            el.innerHTML = current.toLocaleString() + suffix;
-            if (current >= target) clearInterval(interval);
-          }, 30);
-          counterObserver.unobserve(el);
-        }
+  /* ---------- Animated counters ---------- */
+  var counters = $$('[data-count]');
+  function runCounter(el){
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var plain = el.hasAttribute('data-plain');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce){ el.textContent = (plain ? target : target.toLocaleString('en-IN')) + suffix; return; }
+    var start = null, dur = 1500;
+    function step(ts){
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = Math.round(target * eased);
+      el.textContent = (plain ? val : val.toLocaleString('en-IN')) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if ('IntersectionObserver' in window){
+    var cio = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){ runCounter(en.target); cio.unobserve(en.target); }
       });
     }, { threshold: 0.5 });
-    document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
+    counters.forEach(function(c){ cio.observe(c); });
+  } else {
+    counters.forEach(runCounter);
+  }
 
-    /* ===== LIGHTBOX ===== */
-    function openLightbox(src) {
-      document.getElementById('lightboxImg').src = src;
-      document.getElementById('lightbox').classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeLightbox(e) {
-      if (!e || e.target !== document.getElementById('lightboxImg')) {
-        document.getElementById('lightbox').classList.remove('active');
-        document.body.style.overflow = '';
+  /* ---------- Accordion ---------- */
+  $$('#acc .acc-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.parentElement;
+      var isOpen = item.classList.contains('open');
+      $$('#acc .acc-item').forEach(function(it){
+        it.classList.remove('open');
+        $('.acc-btn', it).setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen){
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
       }
-    }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+    });
+  });
 
-    /* ===== CONTACT FORM ===== */
-    function submitForm(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('.form-submit');
-      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-        btn.disabled = false;
-        document.getElementById('formSuccess').style.display = 'block';
-        e.target.reset();
-        setTimeout(() => document.getElementById('formSuccess').style.display = 'none', 5000);
-      }, 1500);
-    }
+  /* ---------- Uniform tabs ---------- */
+  $$('#uniformTabs .tab-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      $$('#uniformTabs .tab-btn').forEach(function(b){
+        b.classList.remove('active'); b.setAttribute('aria-selected', 'false');
+      });
+      $$('#uniformTabs .tab-pane').forEach(function(p){ p.classList.remove('active'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      $('#' + btn.getAttribute('data-tab')).classList.add('active');
+    });
+  });
 
-    /* ===== NEWSLETTER ===== */
-    function subscribeNewsletter(btn) {
-      const input = btn.previousElementSibling;
-      if (!input.value || !input.value.includes('@')) {
-        input.style.outline = '2px solid #ef4444';
-        return;
-      }
-      input.style.outline = '';
-      btn.textContent = '✓ Done!';
-      btn.style.background = '#10b981';
-      input.value = '';
-      setTimeout(() => {
-        btn.textContent = 'Subscribe';
-        btn.style.background = '';
-      }, 3000);
+  /* ---------- Lightbox ---------- */
+  var lb = $('#lightbox'), lbImg = $('#lbImg');
+  function openLb(src, alt){
+    lbImg.src = src; lbImg.alt = alt || '';
+    lb.classList.add('on');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLb(){
+    lb.classList.remove('on');
+    lbImg.src = '';
+    document.body.style.overflow = '';
+  }
+  $$('.gal-item').forEach(function(it){
+    function open(){ openLb(it.getAttribute('data-src'), $('img', it).alt); }
+    it.addEventListener('click', open);
+    it.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); open(); }
+    });
+  });
+  $('#lbClose').addEventListener('click', closeLb);
+  lb.addEventListener('click', function(e){ if (e.target === lb) closeLb(); });
+
+  /* ---------- Enquiry form → WhatsApp ---------- */
+  $('#enquiryForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = $('#pname').value.trim();
+    var phone = $('#phone').value.trim();
+    if (!name || !phone){
+      alert('Please enter your name and mobile number so we can reach you.');
+      (!name ? $('#pname') : $('#phone')).focus();
+      return;
     }
-  </script>
+    var text =
+      'Admission Enquiry — St. James Matriculation School\n\n' +
+      'Parent/Guardian: ' + name + '\n' +
+      'Mobile: ' + phone + '\n' +
+      'Student: ' + ($('#cname').value.trim() || '-') + '\n' +
+      'Class applying for: ' + $('#cls').value + '\n' +
+      'Message: ' + ($('#msg').value.trim() || '-');
+    window.open('https://wa.me/918056308139?text=' + encodeURIComponent(text), '_blank', 'noopener');
+  });
+})();
+</script>
 </body>
 </html>
